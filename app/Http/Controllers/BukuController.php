@@ -40,7 +40,7 @@ class BukuController extends Controller
     	return view('adminKelolaBuku-update', ['result'=>$result]);
     }	
 
-    public function saveUpdate(Request $req){
+    public function saveUpdateBuku(Request $req){
     	DB::table('buku')->where('id_buku', $req->id_buku)->update(
     		[
     		 'id_buku' => $req->id_buku,
