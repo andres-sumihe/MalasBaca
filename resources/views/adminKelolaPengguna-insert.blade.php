@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Insert Buku" required></td>
+				<td><input type="submit" value="Insert Pengguna" required></td>
 			</tr>
 		</table>
 	</form>

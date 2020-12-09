@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Update Buku</title>
+	<title>Update Pengguna</title>
 </head>
 <body>
-	<form method="post" action="/admin/saveUpdateBuku">
+	<form method="post" action="/admin/saveUpdatePengguna">
 		{{ csrf_field() }}
 		<table>
 			<?php foreach ($result as $r): ?>
 		
-			<td><input type="hidden" name="id_buku" value="{{ $r->id_buku }}" required></td>
+			<td><input type="hidden" name="nim_pengguna" value="{{ $r->nim_pengguna }}" required></td>
 
 			<tr>
-				<td>Nama Buku</td>
-				<td><input type="text" name="nama_buku" value="{{ $r->nama_buku  }}" required></td>
+				<td>Nama Pengguna</td>
+				<td><input type="text" name="nama_pengguna" value="{{ $r->nama_pengguna  }}" required></td>
 			</tr>
 			<tr>
-				<td>Penulis Buku</td>
-				<td><input type="text" name="penulis_buku" value="{{ $r->penulis_buku }}" required></td>
+				<td>Email Pengguna</td>
+				<td><input type="text" name="email_pengguna" value="{{ $r->email_pengguna }}" required></td>
 			</tr>
 			<tr>
-				<td>Penerbit Buku</td>
-				<td><input type="text" name="penerbit_buku" value="{{ $r->penerbit_buku }}" required></td>
+				<td>Password Pengguna</td>
+				<td><input type="text" name="password_pengguna" value="{{ $r->password_pengguna }}" required></td>
 			</tr>
 			<tr>
-				<td>URL Cover Buku</td>
-				<td><input type="text" name="url_cover" value="{{ $r->url_cover }}" required></td>
+				<td>No. HP Pengguna</td>
+				<td><input type="text" name="phone_pengguna" value="{{ $r->phone_pengguna }}" required></td>
 			</tr>
 			<tr>
-				<td>Tahun</td>
-				<td><input type="text" name="tahun" value="{{ $r->tahun }}" required></td>
+				<td>Alamat Pengguna</td>
+				<td><input type="text" name="address_pengguna" value="{{ $r->address_pengguna }}" required></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="Update Buku" required></td>
+				<td><input type="submit" value="Update Pengguna" required></td>
 			</tr>
 			<?php endforeach ?>
 		</table>
