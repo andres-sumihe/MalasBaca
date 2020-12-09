@@ -53,5 +53,4 @@ class BukuController extends Controller
     	);
     	return redirect('/admin/readBuku');
     }
-
 }
