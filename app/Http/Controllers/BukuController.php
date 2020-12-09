@@ -24,7 +24,7 @@ class BukuController extends Controller
     	     'penulis_buku' => $req->penulis_buku,
     	     'penerbit_buku' => $req->penerbit_buku,
     	     'url_cover' => $req->url_cover,
-    	     'tahun' => $req->tahun,
+    	     'tahun' => $req->tahun
     		]
     	);
     	return redirect('/admin/readBuku');
@@ -48,7 +48,7 @@ class BukuController extends Controller
     	     'penulis_buku' => $req->penulis_buku,
     	     'penerbit_buku' => $req->penerbit_buku,
     	     'url_cover' => $req->url_cover,
-    	     'tahun' => $req->tahun,
+    	     'tahun' => $req->tahun
     		]
     	);
     	return redirect('/admin/readBuku');

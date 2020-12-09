@@ -40,3 +40,11 @@ Route::post('/admin/savePengguna', 'PenggunaController@savePengguna')->name('sav
 Route::get('/admin/deletePengguna/{nim_pengguna}', 'PenggunaController@deletePengguna')->name('deletePengguna');
 Route::get('/admin/updatePengguna/{nim_pengguna}', 'PenggunaController@updatePengguna')->name('updatePengguna');
 Route::post('/admin/saveUpdatePengguna', 'PenggunaController@saveUpdatePengguna');
+
+//Route CRUD Admin
+Route::get('/admin/readAdmin', 'AdminController@readAdmin');
+Route::get('/admin/insertAdmin', 'AdminController@insertAdmin')->name('insertAdmin');
+Route::post('/admin/saveAdmin', 'AdminController@saveAdmin')->name('saveAdmin');
+Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name('deleteAdmin');
+Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
+Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');

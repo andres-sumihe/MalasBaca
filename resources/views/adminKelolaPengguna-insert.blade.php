@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Insert Buku</title>
+	<title>Insert Pengguna</title>
 </head>
 <body>
 	<form method="post" action="{{ route('savePengguna') }}">

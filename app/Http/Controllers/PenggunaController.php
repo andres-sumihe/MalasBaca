@@ -24,7 +24,7 @@ class PenggunaController extends Controller
     	     'email_pengguna' => $req->email_pengguna,
     	     'password_pengguna' => $req->password_pengguna,
     	     'phone_pengguna' => $req->phone_pengguna,
-    	     'address_pengguna' => $req->address_pengguna,
+    	     'address_pengguna' => $req->address_pengguna
     		]
     	);
     	return redirect('/admin/readPengguna');
@@ -49,7 +49,7 @@ class PenggunaController extends Controller
     	     'email_pengguna' => $req->email_pengguna,
     	     'password_pengguna' => $req->password_pengguna,
     	     'phone_pengguna' => $req->phone_pengguna,
-    	     'address_pengguna' => $req->address_pengguna,
+    	     'address_pengguna' => $req->address_pengguna	
     		]
     	);
     	return redirect('/admin/readPengguna');
