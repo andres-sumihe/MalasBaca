@@ -155,7 +155,7 @@
                                     </table>
                                 </form>
                                 <?php if (isset($resultBuku)): ?>
-                                    <table border="1">
+                                    <table class="table table-hover">
                                         <tr>
                                             <th>Nama Buku</th>
                                             <th>Action</th>
@@ -170,7 +170,7 @@
                                                     data-publisher="{{$b->penerbit_buku}}"
                                                     data-url="{{$b->url_cover}}"
                                                     data-year="{{$b->tahun}}">
-                                                    Detail</a>
+                                                    <font color="blue">Detail</font></a>
                                             </tr>
                                         <?php endforeach ?>
                                     </table>
