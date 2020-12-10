@@ -86,10 +86,10 @@ class LibController extends Controller
     	return view('adminKelolaPengguna-update', ['result'=>$result]);
     }	
 
-    public function saveUpdatePengguna(Request $req){
-    	DB::table('pengguna')->where('nim_pengguna', $req->nim_pengguna)->update(
+    public function saveUpdatePengguna(Request $req, $nim_pengguna){
+    	DB::table('pengguna')->where('nim_pengguna', $nim_pengguna)->update(
     		[
-    		 'nim_pengguna' => $req->nim_pengguna,
+    		 'nim_pengguna' => $nim_pengguna,
     	     'nama_pengguna' => $req->nama_pengguna,
     	     'email_pengguna' => $req->email_pengguna,
     	     'password_pengguna' => $req->password_pengguna,

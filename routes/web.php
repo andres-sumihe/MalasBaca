@@ -57,12 +57,12 @@ Route::get('cariBuku', 'LibController@cariBuku')->name('cariBuku');
 Route::post('cariBukuResult', 'LibController@cariBukuResult')->name('cariBukuResult');
 
 //Route CRUD Pengguna
-//Route::get('/admin', 'PenggunaController@readPengguna');
-Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
-Route::post('/admin/savePengguna', 'PenggunaController@savePengguna')->name('savePengguna');
-Route::get('/admin/deletePengguna/{nim_pengguna}', 'PenggunaController@deletePengguna')->name('deletePengguna');
-Route::get('/admin/updatePengguna/{nim_pengguna}', 'PenggunaController@updatePengguna')->name('updatePengguna');
-Route::post('/admin/saveUpdatePengguna', 'PenggunaController@saveUpdatePengguna');
+//Route::get('/admin', 'LibController@readPengguna');
+Route::get('/admin/insertPengguna', 'LibController@insertPengguna')->name('insertPengguna');
+Route::post('/admin/savePengguna', 'LibController@savePengguna')->name('savePengguna');
+Route::get('/admin/deletePengguna/{nim_pengguna}', 'LibController@deletePengguna')->name('deletePengguna');
+Route::get('/admin/updatePengguna/{nim_pengguna}', 'LibController@updatePengguna')->name('updatePengguna');
+Route::post('/admin/saveUpdatePengguna/{nim_pengguna}', 'LibController@saveUpdatePengguna');
 Route::get('/admin', 'LibController@readPengguna');
 Route::get('/admin/insertPengguna', 'LibController@insertPengguna')->name('insertPengguna');
 Route::post('/admin/savePengguna', 'LibController@savePengguna')->name('savePengguna');
@@ -112,7 +112,11 @@ Route::get('/admin', function () {
 */
 
 Route::get('/admin/buku', 'BukuController@readBuku');
+
 Route::get('/admin/pengguna', 'PenggunaController@readPengguna');	
+
+Route::get('/admin/pengguna', 'LibController@readPengguna');
+
 Route::get('/admin', 'LibController@readBuku');
 
 
