@@ -18,7 +18,8 @@ class BukuController extends Controller
     public function readBuku_Dashboard(){
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-        return view('home',['buku'=>$buku],['pengguna'=>$pengguna]);
+        $peminjaman = DB::table('peminjaman')->get();
+        return view('home',['buku'=>$buku],['pengguna'=>$pengguna],['peminjaman'=>$peminjaman]);
     }
 
     public function insertBuku(){
