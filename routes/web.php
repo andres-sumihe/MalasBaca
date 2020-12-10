@@ -67,3 +67,7 @@ Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.up
 Route::get('/Dashboard', function () {
     return view('home');
 });
+
+Route::get('/admin', function () {
+    return view('adminhome');
+});
