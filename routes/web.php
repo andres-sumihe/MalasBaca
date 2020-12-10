@@ -38,12 +38,12 @@ Route::get('/admin/logout', 'LoginController@LogoutAdmin');
 Route::post('/AdmincheckLogin', 'LoginController@AdmincheckLoginFunction')->name('adminloginCheck');
 
 //Route CRUD Buku
-Route::get('/admin/readBuku', 'BukuController@readBuku');
-Route::get('/admin/insertBuku', 'BukuController@insertBuku')->name('insertBuku');
-Route::post('/admin/saveBuku', 'BukuController@saveBuku')->name('saveBuku');
-Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
-Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
-Route::post('/admin/saveUpdateBuku', 'BukuController@saveUpdateBuku');
+Route::get('/admin', 'BukuController@readBuku');
+Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
+Route::post('/admin', 'BukuController@saveBuku')->name('saveBuku');
+Route::get('/admin/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
+Route::get('/admin/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
+Route::post('/admin/update-buku', 'BukuController@saveUpdateBuku');
 
 //Tambahan Fungsi Untuk Buku(Test)
 Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');
