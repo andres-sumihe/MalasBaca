@@ -86,6 +86,15 @@ Route::get('/admin/deletePeminjaman/{id_Peminjaman}', 'LibController@deletePemin
 Route::get('/admin/updatePeminjaman/{id_Peminjaman}', 'LibController@updatePeminjaman')->name('updatePeminjaman');
 Route::post('/admin/saveUpdatePeminjaman', 'LibController@saveUpdatePeminjaman');
 
+//Route CRUD Pengumuman
+Route::get('/admin/readPengumuman', 'LibController@readPengumuman');
+Route::get('/admin/readPengumuman_Dashboard', 'LibController@readPengumuman_Dashboard');
+Route::get('/admin/insertPengumuman', 'LibController@insertPengumuman')->name('insertPengumuman');
+Route::post('/admin/savePengumuman', 'LibController@savePengumuman')->name('savePengumuman');
+Route::get('/admin/deletePengumuman/{id_Pengumuman}', 'LibController@deletePengumuman')->name('deletePengumuman');
+//Route::get('/admin/updatePengumuman/{id_Pengumuman}', 'LibController@updatePengumuman')->name('updatePengumuman');
+Route::post('/admin/updatePengumuman/{id_pengumuman}', 'LibController@saveUpdatePengumuman');
+
 //File Upload
 // Route::get('admin', 'LibController@fileUpload')->name('file.upload');
 // Route::post('admin', 'LibController@fileUploadPost')->name('file.upload.post');
@@ -103,7 +112,11 @@ Route::get('/admin', function () {
 */
 
 Route::get('/admin/buku', 'BukuController@readBuku');
+
+Route::get('/admin/pengguna', 'PenggunaController@readPengguna');	
+
 Route::get('/admin/pengguna', 'LibController@readPengguna');
+
 Route::get('/admin', 'LibController@readBuku');
 
 
