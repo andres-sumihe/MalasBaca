@@ -39,6 +39,10 @@ Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('de
 Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
 Route::post('/admin/saveUpdateBuku', 'BukuController@saveUpdateBuku');
 
+//Tambahan Fungsi Untuk Buku(Test)
+Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');
+Route::post('cariBukuResult', 'BukuController@cariBukuResult')->name('cariBukuResult');
+
 //Route CRUD Pengguna
 Route::get('/admin/readPengguna', 'PenggunaController@readPengguna');
 Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
@@ -55,7 +59,6 @@ Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name
 Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
 Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
 
-
 //File Upload
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
@@ -65,3 +68,7 @@ Route::get('/Dashboard', function () {
     return view('home');
 });
 Route::get('/Dashboard', 'BukuController@readBuku_Dashboard');
+
+Route::get('/admin', function () {
+    return view('adminhome');
+});

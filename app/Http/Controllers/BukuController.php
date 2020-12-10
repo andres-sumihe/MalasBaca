@@ -58,4 +58,31 @@ class BukuController extends Controller
     	);
     	return redirect('/admin/readBuku');
     }
+
+    public function cariBuku(){
+        return view('/testFungsi');
+    }
+
+    public function cariBukuResult(Request $req){
+
+        $input = $req->input;
+        
+        if(strcmp($req->buku, 'nama') == 0){
+            $resultBuku = DB::table('buku')->where('nama_buku', 'like', "%{$input}%")->get();
+            return view('/testFungsi', ['resultBuku'=>$resultBuku]);
+        }
+        if(strcmp($req->buku, 'penulis') == 0) {
+            $resultBuku = DB::table('buku')->where('penulis_buku', 'like', "%{$input}%")->get();
+            return view('/testFungsi', ['resultBuku'=>$resultBuku]);
+        }
+        if(strcmp($req->buku, 'penerbit') == 0) {
+            $resultBuku = DB::table('buku')->where('penerbit_buku', 'like', "%{$input}%")->get();
+            return view('/testFungsi', ['resultBuku'=>$resultBuku]);
+        }
+        
+
+    }
+
+
 }
+
