@@ -31,13 +31,13 @@
                         <i class="fa fa-dashboard fa-lg mr-2" aria-hidden="true"></i> Dashboard</a>
 
                     <a href="#Daftar-User" class="list-group-item list-group-item-action bg-white nav-item " data-toggle="tab" role="tab" aria-controls="Daftar-User" aria-selected="false">
-                        <i class="fa fa-user-circle-o fa-lg mr-2" aria-hidden="true"></i> Daftar User</a>
+                        <i class="fa fa-user-circle-o fa-lg mr-2" aria-hidden="true"></i> Data User</a>
 
                     <a href="#Daftar-Buku" class="list-group-item list-group-item-action bg-white nav-item " data-toggle="tab" role="tab" aria-controls="Daftar-Buku" aria-selected="false">
-                        <i class="fa fa-newspaper-o fa-lg mr-2" aria-hidden="true"></i>Daftar Buku</a>
+                        <i class="fa fa-newspaper-o fa-lg mr-2" aria-hidden="true"></i>Data Buku</a>
 
                     <a href="#Akun" class="list-group-item list-group-item-action bg-white nav-item " data-toggle="tab" role="tab" aria-controls="Akun" aria-selected="false">
-                        <i class="fa fa-list fa-lg mr-2" aria-hidden="true"></i> Daftar Transaksi</a>
+                        <i class="fa fa-list fa-lg mr-2" aria-hidden="true"></i> Data Transaksi</a>
 
                     <a href="/admin/login" class="list-group-item list-group-item-action bg-white nav-item ">
                         <i class="fa fa-sign-out fa-lg mr-2" aria-hidden="true"></i> Logout</a>
@@ -78,9 +78,50 @@
                         Daftar-User
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Buku" role="tabpanel" aria-labelledby="Daftar-Buku-tab" >
-                    
-
+                <!-- INSERT BUKU -->
+                    <form method="post" action="{{ route('saveBuku') }}">
+                    {{ csrf_field() }}
+                    <table>
+                        <tr>
+                            <td>ID Buku</td>
+                            <td><input type="text" name="id_buku" required></td>
+                        </tr>
+                        <tr>
+                            <td>Nama Buku</td>
+                            <td><input type="text" name="nama_buku" required></td>
+                        </tr>
+                        <tr>
+                            <td>Penulis Buku</td>
+                            <td><input type="text" name="penulis_buku" required></td>
+                        </tr>
+                        <tr>
+                            <td>Penerbit Buku</td>
+                            <td><input type="text" name="penerbit_buku" required></td>
+                        </tr>
+                        <!-- <tr>
+                            <td>URL Cover Buku</td>
+                            <td><input type="text" name="url_cover" required></td>
+                        </tr> -->
+                        <tr>
+                            <td>Tahun</td>
+                            <td><input type="text" name="tahun" required></td>
+                        </tr>
+                        <tr>
+                            <td>Stok</td>
+                            <td><input type="text" name="stok_buku" required></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td><input type="text" name="status_buku" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Insert Buku" required></td>
+                        </tr>
+                    </table>
+                </form>
                 <!-- READ BUKU -->
+                Data Buku
                 <table class="table table-stripped table-bordered">
                     <tr>
                         <th>ID Buku</th>
@@ -137,7 +178,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="ModalTitle">UPDATE Buku</h5>
+                <h5 class="modal-title" id="ModalTitle">Update Buku</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -220,13 +261,13 @@
             
         var modal = $(this);
         var background =  "background-image: url('"+url+"');";
-        modal.find('#cover').attr("value", url);
-        modal.find('#Title').attr("value", title);
-        modal.find('#Author').attr("value", author);
-        modal.find('#Publisher').attr("value", publisher);
-        modal.find('#Year').attr("value", year);
-        modal.find('#Stock').attr("value", stock);
-        modal.find('#Status').attr("value", status);
+            modal.find('#cover').val(url);
+            modal.find('#Title').val(title);
+            modal.find('#Author').val(author);
+            modal.find('#Publisher').val(publisher);
+            modal.find('#Year').val(year);
+            modal.find('#Stock').val(stock);
+            modal.find('#Status').val(status);
         })
     </script>
 

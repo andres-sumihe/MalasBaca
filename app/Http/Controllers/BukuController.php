@@ -21,7 +21,7 @@ class BukuController extends Controller
     }
 
     public function insertBuku(){
-        return view('adminKelolaBuku-insert');
+        return view('adminhome');
     }
 
     public function saveBuku(Request $req){
@@ -37,7 +37,7 @@ class BukuController extends Controller
              'tahun' => $req->tahun
             ]
         );
-        return redirect('/admin/readBuku');
+        return redirect('/admin');
     }
 
     public function deleteBuku($id_buku){
