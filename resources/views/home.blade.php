@@ -170,11 +170,16 @@
                     <h6 class="rowTitleModal">Penerbit</h6>
                     <p id="Publisher"></p>
                     <hr>
+
+                    <h6 class="rowTitleModal">Tahun Terbit</h6>
+                    <p id="Year"></p>
+                    <hr>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Pesan</button>
+                <div class="d-flex flex-row">
+                    <p>Stok</p>
+                </div>
             </div>
             </div>
         </div>
@@ -210,6 +215,7 @@
         modal.find('#Title').text(title);
         modal.find('#Author').text(author);
         modal.find('#Publisher').text(publisher);
+        modal.find('#Year').text(year);
         })
     </script>
 

@@ -32,6 +32,14 @@
 				<td><input type="text" name="tahun" required></td>
 			</tr>
 			<tr>
+				<td>Stok</td>
+				<td><input type="text" name="stok_buku" required></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td><input type="text" name="status_buku" required></td>
+			</tr>
+			<tr>
 				<td></td>
 				<td><input type="submit" value="Insert Buku" required></td>
 			</tr>

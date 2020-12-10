@@ -29,6 +29,8 @@ class BukuController extends Controller
     	     'penulis_buku' => $req->penulis_buku,
     	     'penerbit_buku' => $req->penerbit_buku,
     	     'url_cover' => $req->url_cover,
+    	     'stok_buku' => $req->stok_buku,
+    	     'status_buku' => $req->status_buku,
     	     'tahun' => $req->tahun
     		]
     	);
@@ -53,6 +55,8 @@ class BukuController extends Controller
     	     'penulis_buku' => $req->penulis_buku,
     	     'penerbit_buku' => $req->penerbit_buku,
     	     'url_cover' => $req->url_cover,
+    	     'stok_buku' => $req->stok_buku,
+    	     'status_buku' => $req->status_buku,
     	     'tahun' => $req->tahun
     		]
     	);
