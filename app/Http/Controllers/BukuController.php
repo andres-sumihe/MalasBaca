@@ -42,7 +42,7 @@ class BukuController extends Controller
 
     public function deleteBuku($id_buku){
         DB::table('buku')->where('id_buku', $id_buku)->delete();
-        return redirect('/admin/readBuku');
+        return redirect('/admin');
     }
 
     public function updateBuku($id_buku){
