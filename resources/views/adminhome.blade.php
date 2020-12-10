@@ -75,7 +75,34 @@
                         
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-User" role="tabpanel" aria-labelledby="Daftar-User-tab" >
-                        Daftar-User
+                
+                
+                <!-- DAFTAR USER -->
+                <table border="1">
+                    <tr>
+                        <th>NIM Pengguna</th>
+                        <th>Nama Pengguna</th>
+                        <th>Email Pengguna</th>
+                        <th>Password Pengguna</th>
+                        <th>No. HP Pengguna</th>
+                        <th>Alamat Pengguna</th>
+                        <th>Action</th>
+                    </tr>
+                    <?php foreach ($pengguna as $p): ?>
+                        <tr>
+                            <td>{{ $p->nim_pengguna }}</td>
+                            <td>{{ $p->nama_pengguna }}</td>
+                            <td>{{ $p->email_pengguna }}</td>
+                            <td>{{ $p->password_pengguna }}</td>
+                            <td>{{ $p->phone_pengguna}}</td>
+                            <td>{{ $p->address_pengguna}}</td>
+                            <td>
+                                <a href="/admin/updatePengguna/{{ $p->nim_pengguna }}">Edit</a> | 
+                                <a href="/admin/deletePengguna/{{ $p->nim_pengguna }}">Hapus</a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </table>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Buku" role="tabpanel" aria-labelledby="Daftar-Buku-tab" >
                 <!-- INSERT BUKU -->
