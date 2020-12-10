@@ -261,6 +261,37 @@
                 </div>
                 
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Daftar-Transaksi-tab" >
+                        <h5><strong>Form Peminjaman Buku</strong></h5>
+                        <form method="post" action="{{ route('savePeminjaman') }}">
+                            {{ csrf_field() }}
+                            <table>
+                                <tr>
+                                    <td>Tanggal Pinjam</td>
+                                    <td><input type="date" name="tanggal_pinjam" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Kembali</td>
+                                    <td><input type="date" name="tanggal_kembali" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>Status Peminjaman</td>
+                                    <td><input type="text" name="status_peminjaman" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>ID Buku</td>
+                                    <td><input type="text" name="id_buku" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td>NIM Pengguna</td>
+                                    <td><input type="text" name="nim_pengguna" required class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input type="submit" value="Insert Peminjaman" required class="btn btn-success"></td>
+                                </tr>
+                            </table>
+                        </form>
+                        
                         <h3><strong>Data Transaksi</strong></h3>
                         <table class="table table-stripped table-hover">
                             <tr>
@@ -272,6 +303,7 @@
                                 <th>NIM Pengguna</th>
                                 <th>Action</th>
                             </tr>
+                            
                         </table>
                 </div>
 

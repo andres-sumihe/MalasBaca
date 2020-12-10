@@ -218,12 +218,12 @@ class LibController extends Controller
 
     //peminjaman=============================================================================================================
     public function readPeminjaman(){
-    	$peminjaman = DB::table('Peminjaman')->get();
-    	return view('adminKelolaPeminjaman-read',['peminjaman'=>$peminjaman]);
+    	$peminjaman = DB::table('peminjaman')->get();
+    	return view('adminhome',['peminjaman'=>$peminjaman]);
     }
 
     public function insertPeminjaman(){
-    	return view('adminKelolaPeminjaman-insert');
+    	return view('adminhome');
     }
 
     public function savePeminjaman(Request $req){
@@ -237,13 +237,13 @@ class LibController extends Controller
              'nim_pengguna' => $req->nim_pengguna
     		]
     	);
-    	return redirect('/admin/readPeminjaman');
+    	return redirect('/admin');
     }
 
 
    public function deletePeminjaman($id_peminjaman){
    		DB::table('peminjaman')->where('id_peminjaman', $id_peminjaman)->delete();
-   		return redirect('/admin/readPeminjaman');
+   		return redirect('/admin');
     }
 
     public function updatePeminjaman($id_peminjaman){
@@ -262,7 +262,7 @@ class LibController extends Controller
              'nim_pengguna' => $req->nim_pengguna
     		]
     	);
-    	return redirect('/admin/readPeminjaman');
+    	return redirect('/admin');
     }
 
     //pengumuman=============================================================================================================
