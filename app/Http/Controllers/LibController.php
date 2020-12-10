@@ -73,12 +73,12 @@ class LibController extends Controller
     	     'address_pengguna' => $req->address_pengguna
     		]
     	);
-    	return redirect('/admin/readPengguna');
+    	return redirect('/admin');
     }
 
    public function deletePengguna($nim_pengguna){
    		DB::table('pengguna')->where('nim_pengguna', $nim_pengguna)->delete();
-   		return redirect('/admin/readPengguna');
+   		return redirect('/admin');
     }
 
     public function updatePengguna($nim_pengguna){
@@ -97,7 +97,7 @@ class LibController extends Controller
     	     'address_pengguna' => $req->address_pengguna	
     		]
     	);
-    	return redirect('/admin/readPengguna');
+    	return redirect('/admin');
     }
     public function gantipassword(Request $req)
     {
