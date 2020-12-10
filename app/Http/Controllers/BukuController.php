@@ -9,7 +9,7 @@ class BukuController extends Controller
 {
     public function readBuku(){
     	$buku = DB::table('buku')->get();
-    	return view('adminhome',['buku'=>$buku]);
+    	return view('/adminhome',['buku'=>$buku]);
     }
 	
 	public function readBuku_Dashboard(){

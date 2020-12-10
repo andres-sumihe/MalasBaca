@@ -83,6 +83,10 @@ Route::get('/Dashboard', function () {
 });
 Route::get('/Dashboard', 'BukuController@readBuku_Dashboard');
 
+/*
 Route::get('/admin', function () {
     return view('adminhome');
 });
+*/
+
+Route::get('/admin', 'BukuController@readBuku');
