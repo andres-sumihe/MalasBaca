@@ -87,11 +87,10 @@ Route::get('/Dashboard', 'BukuController@readBuku_Dashboard');
 Route::get('/admin', function () {
     return view('adminhome');
 });
-<<<<<<< HEAD
 */
 
 Route::get('/admin', 'BukuController@readBuku');
-=======
+
 //Ganti Password
 Route::post('/gantipassword','PenggunaController@gantipassword');
->>>>>>> 9d0fdc8222859d7965738292a77d9c0be42406c2
+
