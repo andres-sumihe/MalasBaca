@@ -44,16 +44,16 @@ class BukuController extends Controller
         DB::table('buku')->where('id_buku', $id_buku)->delete();
         return redirect('/admin');
     }
-
+    /*
     public function updateBuku($id_buku){
         $result = DB::table('buku')->where('id_buku', $id_buku)->get();
         return view('adminKelolaBuku-update', ['result'=>$result]);
     }   
-
-    public function saveUpdateBuku(Request $req){
-        DB::table('buku')->where('id_buku', $req->id_buku)->update(
+    */
+    public function saveUpdateBuku(Request $req, $id_buku){
+        DB::table('buku')->where('id_buku', $id_buku)->update(
             [
-             'id_buku' => $req->id_buku,
+             'id_buku' => $id_buku,
              'nama_buku' => $req->nama_buku,
              'penulis_buku' => $req->penulis_buku,
              'penerbit_buku' => $req->penerbit_buku,

@@ -143,7 +143,7 @@
                 </button>
             </div>
             <div class="modal-body d-flex flex-row">
-                <form method="post" action="/admin/update-buku">
+                <form method="post" action="/admin/updateBuku/{{ $b->id_buku }}">
 
                 <!-- CEK DONG, KENAPA INI GA JADI :(  -->
                     {{ csrf_field() }}
