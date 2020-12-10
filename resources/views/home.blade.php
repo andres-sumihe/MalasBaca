@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex" id="wrapper" style="overflow: auto;">
 
         <div class="bg-white border-right" id="sidebar-wrapper">
             <div class="sidebar-heading px-4 pt-3 pb-1 d-flex justify-content-between align-items-center"><a
