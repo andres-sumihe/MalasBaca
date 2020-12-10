@@ -264,4 +264,56 @@ class LibController extends Controller
     	);
     	return redirect('/admin/readPeminjaman');
     }
+
+    //pengumuman=============================================================================================================
+    public function readPengumuman(){
+        $buku = DB::table('buku')->get();
+        $pengguna = DB::table('pengguna')->get();
+        $pengumuman = DB::table('Pengumuman')->get();
+        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna]);
+    }
+
+    public function readPengumuman_Dashboard(){
+        $buku = DB::table('buku')->get();
+        $pengguna = DB::table('pengguna')->get();
+        $pengumuman = DB::table('Pengumuman')->get();
+        $peminjaman = DB::table('peminjaman')->get();
+        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+    }
+
+    public function insertPengumuman(){
+        return view('adminHome');
+    }
+
+
+    public function savePengumuman(Request $req){
+        DB::table('pengumuman')->insert(
+            [
+             'id_pengumuman' => $req->id_pengumuman,
+             'title_pengumuman' => $req->title_pengumuman,
+             'isi_pengumuman' => $req->isi_pengumuman
+            ]
+        );
+        return redirect('/admin');
+    }
+
+
+     public function deletePengumuman($id_pengumuman){     
+        DB::table('pengumuman')->where('id_pengumuman', $id_pengumuman)->delete();
+        return redirect('/admin');
+    }
+    
+    //Popup
+    public function saveUpdatePengumuman(Request $req, $id_pengumuman){
+        DB::table('pengumuman')->where('id_pengumuman', $id_pengumuman)->update(
+            [
+             'id_pengumuman' => $id_pengumuman,
+             'title_pengumuman' => $req->title_pengumuman,
+             'isi_pengumuman' => $req->isi_pengumuman
+            ]
+        );
+        return redirect('/admin');
+    }   
+
+
 }
