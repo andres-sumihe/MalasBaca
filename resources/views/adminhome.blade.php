@@ -173,7 +173,7 @@
                 </div>
                 
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Daftar-Transaksi-tab" >
-                        <h3><strong>Daftar Transaksi</strong></h3>
+                        <h3><strong>Data Transaksi</strong></h3>
                         <table class="table table-stripped table-hover">
                             <tr>
                                 <th>ID Peminjaman</th>
