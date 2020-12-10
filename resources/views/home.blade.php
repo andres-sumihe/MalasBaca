@@ -76,19 +76,25 @@
             <div class="container-imk mx-auto my-3 bg-white rounded py-3 px-3 tab-content" id="nav-tabContent">
                 <div class="col-md-12 col-lg-12 tab-pane fade show active" id="Dashboard" role="tabpanel" aria-labelledby="Dashboard-tab" >
                     <div class="row">
-                        <div class="col-md-6 col-lg-6">
+                        <div class="col-md-6 col-lg-6 ">
                             <h3 class="font-weight-bold">Buku Terbaru</h3>
-                            <?php foreach ($buku as $b): ?>
-
-                                <div class="col-md-6 px-1 col-lg-6 col-sm-12 mb-2">
-                                    <a class="cards" href="detail-kelas.html">
-                                    <div style="background-image: url('{{ $b->url_cover }}');" class="d-flex text-white rounded ds">
-                                        
-                                        <h6 class="font-weight-bold text-center">{{ $b->nama_buku }}</h6>
+                            <div class="d-flex flex-row flex-wrap">
+                                <?php foreach ($buku as $b): ?>
+                                    <div class="col-md-6 px-1 col-lg-6 col-sm-12 mb-2">
+                                        <a class="cards" href="#Modal" data-toggle="modal" data-target="#Modal" data-whatever="TEST"
+                                            data-id="{{$b->id_buku}}"
+                                            data-title="{{$b->nama_buku}}"
+                                            data-author="{{$b->penulis_buku}}"
+                                            data-publisher="{{$b->penerbit_buku}}"
+                                            data-url="{{$b->url_cover}}"
+                                            data-year="{{$b->tahun}}">
+                                            <div style="background-image: url('{{ $b->url_cover }}');" class="d-flex text-white rounded ds">
+                                                
+                                            </div>
+                                        </a>
                                     </div>
-                                    </a>
-                                </div>
-                            <?php endforeach ?>
+                                <?php endforeach ?>
+                            </div>
                         </div>
                         
                         <div class="col-md-6 col-lg-6">
@@ -137,6 +143,44 @@
     </div>
 
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Detail Buku</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-row">
+                <div id="cover" style="" class="d-flex text-white rounded dsModal col-md-6 col-sm-12"></div>
+                <div class="information p-3 col-md-6 col-sm-12">
+                
+                    <h6 class="rowTitleModal">Judul</h6>
+                    <p id="Title"></p>
+                    <hr>
+
+                    <h6 class="rowTitleModal">Penulis</h6>
+                    <p id="Author"></p>
+                    <hr>
+                
+                    <h6 class="rowTitleModal">Penerbit</h6>
+                    <p id="Publisher"></p>
+                    <hr>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Pesan</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="js/jquery/jquery.min.js"></script>
     <script src="/js/app.js"></script>
     <script type="text/javascript" src="/js/imk.js"></script>
@@ -147,6 +191,26 @@
             $("#wrapper").toggleClass("toggled");
         });
 
+    </script>
+
+    <script>
+        $('#Modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var recipient = button.data('whatever');
+        var title = button.data('title'); 
+        var book_id = button.data('id');    
+        var author = button.data('author'); 
+        var publisher = button.data('publisher'); 
+        var url = button.data('url');
+        var year = button.data('year');
+            
+        var modal = $(this);
+        var background =  "background-image: url('"+url+"');";
+        modal.find('#cover').attr("style", background);
+        modal.find('#Title').text(title);
+        modal.find('#Author').text(author);
+        modal.find('#Publisher').text(publisher);
+        })
     </script>
 
 </body>

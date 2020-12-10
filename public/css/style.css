@@ -42,7 +42,15 @@ body {
 
 .ds {
   width: 100%; 
-  height: 200px ;
+  background-size: cover; 
+  background-position: center;
+  height: 300px ;
+}
+.dsModal {
+  /* width: 200px !important;  */
+  background-size: cover; 
+  background-position: center;
+  height: 300px ;
 }
 
 .ds2 {
@@ -191,7 +199,25 @@ a.cards, a.cards:hover {
   margin-left: 0;
 }
 
+.rowTitleModal {
+  width: 100px;
+}
 
+.information {
+  /* width: 50%; */
+}
+
+.information >h6{
+  color: #655dfd;
+  font-weight: bold;
+}
+.information > p{
+  margin-bottom: 0;
+}
+
+.information > hr {
+  margin-top: 10px;
+}
 
 .list-group-item.active  {
   color:#655dfd !important;
@@ -202,6 +228,8 @@ a.cards, a.cards:hover {
     margin-left: 0;
   }
 
+  
+
   #page-content-wrapper {
     min-width: 0;
     width: 100%;
@@ -209,5 +237,21 @@ a.cards, a.cards:hover {
 
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
+  }
+}
+
+
+@media only screen and (max-width: 767px){
+  .dsModal {
+    /* width: 200px !important;  */
+    background-size: cover; 
+    background-position: center;
+    height: 240px ;
+  }
+  .ds {
+    width: 100% ; 
+    background-size: cover; 
+    background-position: center;
+    height: calc(100vw) ;
   }
 }
