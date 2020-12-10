@@ -48,3 +48,8 @@ Route::post('/admin/saveAdmin', 'AdminController@saveAdmin')->name('saveAdmin');
 Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name('deleteAdmin');
 Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
 Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
+
+
+//File Upload
+Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
