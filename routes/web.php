@@ -38,6 +38,12 @@ Route::get('/admin/logout', 'LibController@LogoutAdmin');
 Route::post('/AdmincheckLogin', 'LibController@AdmincheckLoginFunction')->name('adminloginCheck');
 
 //Route CRUD Buku
+//Route::get('/admin', 'BukuController@readBuku');
+Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
+Route::post('/admin/buku/insert', 'BukuController@saveBuku')->name('saveBuku');
+Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
+//Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
+Route::post('/admin/updateBuku/{id_buku}', 'BukuController@saveUpdateBuku');
 Route::get('/admin', 'LibController@readBuku');
 Route::get('/admin', 'LibController@insertBuku')->name('insertBuku');
 Route::post('/admin/buku/insert', 'LibController@saveBuku')->name('saveBuku');
@@ -45,11 +51,18 @@ Route::get('/admin/deleteBuku/{id_buku}', 'LibController@deleteBuku')->name('del
 //Route::get('/admin/updateBuku/{id_buku}', 'LibController@updateBuku')->name('updateBuku');
 Route::post('/admin/updateBuku/{id_buku}', 'LibController@saveUpdateBuku');
 
+
 //Tambahan Fungsi Untuk Buku(Test)
 Route::get('cariBuku', 'LibController@cariBuku')->name('cariBuku');
 Route::post('cariBukuResult', 'LibController@cariBukuResult')->name('cariBukuResult');
 
 //Route CRUD Pengguna
+//Route::get('/admin', 'PenggunaController@readPengguna');
+Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
+Route::post('/admin/savePengguna', 'PenggunaController@savePengguna')->name('savePengguna');
+Route::get('/admin/deletePengguna/{nim_pengguna}', 'PenggunaController@deletePengguna')->name('deletePengguna');
+Route::get('/admin/updatePengguna/{nim_pengguna}', 'PenggunaController@updatePengguna')->name('updatePengguna');
+Route::post('/admin/saveUpdatePengguna', 'PenggunaController@saveUpdatePengguna');
 Route::get('/admin', 'LibController@readPengguna');
 Route::get('/admin/insertPengguna', 'LibController@insertPengguna')->name('insertPengguna');
 Route::post('/admin/savePengguna', 'LibController@savePengguna')->name('savePengguna');
@@ -89,7 +102,10 @@ Route::get('/admin', function () {
 });
 */
 
+Route::get('/admin/buku', 'BukuController@readBuku');
+Route::get('/admin/pengguna', 'PenggunaController@readPengguna');
 Route::get('/admin', 'LibController@readBuku');
+
 
 //Ganti Password
 Route::post('/gantipassword','LibController@gantipassword');
