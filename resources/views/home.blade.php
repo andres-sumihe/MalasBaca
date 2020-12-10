@@ -132,7 +132,37 @@
                         Cari-Buku
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Buku" role="tabpanel" aria-labelledby="Daftar-Buku-tab" >
-                        Daftar-Buku
+                    <div class="container">
+                        <div class="row">
+
+                        <h3><strong>Daftar Buku</strong></h3>
+                        <table class="table table-hover">
+                            <tr>
+                                <td>ID Buku</td>
+                                <td>Judul Buku</td>
+                                <td>Penulis</td>
+                                <td>Penerbit</td>
+                                <td>Cover</td>
+                                <td>Stok Buku</td>
+                                <td>Status Buku</td>
+                                <td>Tahun</td>
+                            </tr>
+                            <?php foreach ($buku as $b): ?>
+                                <tr>
+                                    <td>{{$b->id_buku}}</td>
+                                    <td>{{$b->nama_buku}}</td>
+                                    <td>{{$b->penulis_buku}}</td>
+                                    <td>{{$b->penerbit_buku}}</td>
+                                    <td>{{$b->url_cover}}</td>
+                                    <td>{{$b->stok_buku}}</td>
+                                    <td>{{$b->status_buku}}</td>
+                                    <td>{{$b->tahun}}</td>
+                                </tr>
+                            <?php endforeach ?>
+                        </table>
+                        
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Akun-tab" >
                         <h3><strong>Akun</strong></h3>
