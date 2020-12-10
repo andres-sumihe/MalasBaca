@@ -59,3 +59,15 @@ Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name
 Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
 Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
 
+<<<<<<< HEAD
+=======
+
+//File Upload
+Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+
+//Dashboard
+Route::get('/Dashboard', function () {
+    return view('home');
+});
+>>>>>>> 9c69708b9c5a85cf85de5c2551267a0b1c317e4b
