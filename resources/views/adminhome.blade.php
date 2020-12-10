@@ -99,7 +99,19 @@
                             <td>{{ $b->penerbit_buku }}</td>
                             <td>{{ $b->url_cover }}</td>
                             <td>{{ $b->tahun }}</td>
-                            <td><a href="/admin/updateBuku/{{ $b->id_buku }}">Edit</a> | <a href="/admin/deleteBuku/{{ $b->id_buku }}">Hapus</a></td>
+                            <td>
+                                <a class="cards" href="#Modal" data-toggle="modal" data-target="#Modal" data-whatever="TEST"
+                                    data-id="{{$b->id_buku}}"
+                                    data-title="{{$b->nama_buku}}"
+                                    data-author="{{$b->penulis_buku}}"
+                                    data-publisher="{{$b->penerbit_buku}}"
+                                    data-url="{{$b->url_cover}}"
+                                    data-stock="{{$b->stok_buku}}"
+                                    data-status="{{$b->status_buku}}"
+                                    data-year="{{$b->tahun}}">
+                                Edit</a>
+                                 | 
+                                <a href="/admin/deleteBuku/{{ $b->id_buku }}">Hapus</a></td>
                         </tr>
                     <?php endforeach ?>
                 </table>
@@ -132,6 +144,8 @@
             </div>
             <div class="modal-body d-flex flex-row">
                 <form method="post" action="/admin/update-buku">
+
+                <!-- CEK DONG, KENAPA INI GA JADI :(  -->
                     {{ csrf_field() }}
                     <table>
                         <td><input type="hidden" name="id_buku" id="id_buku" required></td>
@@ -162,7 +176,7 @@
                         </tr>
                         <tr>
                             <td>Tahun</td>
-                            <td><input type="text" name="tahun" id="year" required></td>
+                            <td><input type="text" name="tahun" id="Year" required></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -201,7 +215,7 @@
         var publisher = button.data('publisher'); 
         var url = button.data('url');
         var year = button.data('year');
-        var stok = button.data('stok');
+        var stock = button.data('stock');
         var status = button.data('status');
             
         var modal = $(this);

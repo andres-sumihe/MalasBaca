@@ -10,8 +10,8 @@ class BukuController extends Controller
     public function readBuku(){
     	$buku = DB::table('buku')->get();
     	return view('/adminhome',['buku'=>$buku]);
-        $buku = DB::table('buku')->get();
-        return view('adminKelolaBuku-read',['buku'=>$buku]);
+        // $buku = DB::table('buku')->get();
+        // return view('adminKelolaBuku-read',['buku'=>$buku]);
     }
     
     public function readBuku_Dashboard(){
@@ -63,7 +63,7 @@ class BukuController extends Controller
              'tahun' => $req->tahun
             ]
         );
-        return redirect('/admin/readBuku');
+        return redirect('/admin');
     }
 
     public function cariBuku(){
