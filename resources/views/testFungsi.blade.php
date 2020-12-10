@@ -9,8 +9,16 @@
 		{{ csrf_field() }}
 		<table>
 			<tr>
-				<td>Nama Buku</td>
-				<td><input type="text" name="nama_buku" required></td>
+				<td><input type="text" name="input" required></td>
+				<td><label for="buku">Filter</label></td>
+				<td>
+					<select name="buku" id="buku">
+					  <option value=""></option>
+					  <option value="nama">Nama Buku</option>
+					  <option value="penulis">Penulis Buku</option>
+					  <option value="penerbit">Penerbit Buku</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 		
