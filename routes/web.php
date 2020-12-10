@@ -29,6 +29,12 @@ Route::post('/checkLogin', 'LoginController@checkLoginFunction')->name('loginChe
 Route::get('/admin/login', function () {
     return view('adminloginPage');
 });
+
+Route::get('/admin/success', function () {
+    return view('adminsuccessLogin');
+});
+
+Route::get('/admin/logout', 'LoginController@LogoutAdmin');
 Route::post('/AdmincheckLogin', 'LoginController@AdmincheckLoginFunction')->name('adminloginCheck');
 
 //Route CRUD Buku

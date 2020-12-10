@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Session;
 
 class LoginController extends Controller
 {
@@ -22,11 +23,18 @@ class LoginController extends Controller
          $admin = DB::table('admin')->get();
          foreach ($admin as $a) {
             if ($a->id_admin == $req->id && $a->password_admin == $req->password) {
-               return view('adminsuccessLogin',['admin'=>$admin]);
+               $adminResult = DB::table('admin')->where('id_admin', $a->id_admin)->get();
+               Session::push('adminResultLogin', $adminResult);
+               return view('adminsuccessLogin');
             }else{
                return redirect('/admin/login');
             }
          }
       
+   }
+
+   public function LogoutAdmin(){
+      Session::forget('adminResultLogin');
+      return redirect('/admin/login');
    }
 }
