@@ -65,6 +65,14 @@ Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name
 Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
 Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
 
+//Route CRUD Peminjaman
+Route::get('/admin/readPeminjaman', 'PeminjamanController@readPeminjaman');
+Route::get('/admin/insertPeminjaman', 'PeminjamanController@insertPeminjaman')->name('insertPeminjaman');
+Route::post('/admin/savePeminjaman', 'PeminjamanController@savePeminjaman')->name('savePeminjaman');
+Route::get('/admin/deletePeminjaman/{id_Peminjaman}', 'PeminjamanController@deletePeminjaman')->name('deletePeminjaman');
+Route::get('/admin/updatePeminjaman/{id_Peminjaman}', 'PeminjamanController@updatePeminjaman')->name('updatePeminjaman');
+Route::post('/admin/saveUpdatePeminjaman', 'PeminjamanController@saveUpdatePeminjaman');
+
 //File Upload
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
