@@ -103,7 +103,7 @@ Route::post('/admin/updatePengumuman/{id_pengumuman}', 'LibController@saveUpdate
 Route::get('/Dashboard', function () {
     return view('home');
 });
-Route::get('/Dashboard', 'LibController@readBuku_Dashboard');
+Route::get('/Dashboard', 'LibController@readBuku_Dashboard');  //Karena disini dipanggil readBuku_Dashboard yang gada pengumuman
 
 /*
 Route::get('/admin', function () {
