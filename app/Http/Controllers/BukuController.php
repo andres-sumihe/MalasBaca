@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class BukuController extends Controller
 {
+   
     public function readBuku(){
     	$buku = DB::table('buku')->get();
     	return view('/adminhome',['buku'=>$buku]);
@@ -45,10 +46,24 @@ class BukuController extends Controller
              'tahun' => $req->tahun
             ]
         );
-        return redirect('/admin');
+        return redirect($url_cover);
     }
 
     public function deleteBuku($id_buku){
+        $buku = DB::table('buku')->where('id_buku', $id_buku)->get();
+        foreach($buku as $b){
+
+            if(file_exists(public_path($b->url_cover))){
+
+            unlink(public_path($b->url_cover));
+    
+        }else{
+    
+            dd('File does not exists.');
+    
+        }
+        }
+        
         DB::table('buku')->where('id_buku', $id_buku)->delete();
         return redirect('/admin');
     }
@@ -94,41 +109,10 @@ class BukuController extends Controller
             $resultBuku = DB::table('buku')->where('penerbit_buku', 'like', "%{$input}%")->get();
             return view('/testFungsi', ['resultBuku'=>$resultBuku]);
         }
-        
 
-	}
+    }
+    
+    
 	
-	/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function fileUpload()
-    {
-        return view('adminhome');
-    }
-  
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function fileUploadPost(Request $request)
-    {
-        $request->validate([
-            'file' => 'required|mimes:jpg,jpeg,png|max:2048',
-        ]);
-  
-        $fileName = "IPA002".'.'.$request->file->extension();  
-   
-        $request->file->move(public_path('assets/img'), $fileName);
-   
-        return back()
-            ->with('success','You have successfully upload file.')
-            ->with('file',$fileName);
-   
-    }
-
-
 }
 

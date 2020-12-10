@@ -82,7 +82,7 @@
 
                     <div class="d-flex flex-row">
                         <div class="col-md-6 col-sm-12">
-                            <form method="post" action="{{ route('saveBuku') }}">
+                            <form method="post" action="{{ route('saveBuku') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <table>
                                     <tr>
