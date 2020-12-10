@@ -71,4 +71,3 @@ Route::get('/Dashboard', function () {
 Route::get('/admin', function () {
     return view('adminhome');
 });
->>>>>>> 89378a8b220cfaefc2633330c28999335d8aefce
