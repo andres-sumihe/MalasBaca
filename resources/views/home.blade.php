@@ -42,7 +42,7 @@
                     <a href="#Akun" class="list-group-item list-group-item-action bg-white nav-item " data-toggle="tab" role="tab" aria-controls="Akun" aria-selected="false">
                         <i class="fa fa-user-circle-o fa-lg mr-2" aria-hidden="true"></i> Pengaturan Akun</a>
 
-                    <a href="/loginPage" class="list-group-item list-group-item-action bg-white nav-item ">
+                    <a href="/" class="list-group-item list-group-item-action bg-white nav-item ">
                         <i class="fa fa-sign-out fa-lg mr-2" aria-hidden="true"></i> Logout</a>
                 </div>
             </div>
