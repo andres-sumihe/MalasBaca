@@ -10,7 +10,8 @@ class BukuController extends Controller
    
     public function readBuku(){
     	$buku = DB::table('buku')->get();
-    	return view('adminhome',['buku'=>$buku]);
+        $pengguna = DB::table('pengguna')->get();
+    	return view('adminhome',['buku'=>$buku],['pengguna'=>$pengguna]);
         // $buku = DB::table('buku')->get();
         // return view('adminKelolaBuku-read',['buku'=>$buku]);
     }
