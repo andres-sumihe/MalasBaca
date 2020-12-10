@@ -197,13 +197,23 @@
                         </tr>
                     <?php endforeach ?>
                 </table>
-                <br>
-                <br>
+                </div>
                 
-                </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Daftar-Transaksi-tab" >
-                        Daftar-Transaksi
+                        <h3><strong>Data Transaksi</strong></h3>
+                        <table class="table table-stripped table-hover">
+                            <tr>
+                                <th>ID Peminjaman</th>
+                                <th>Tanggal Peminjaman</th>
+                                <th>Tanggal Kembali</th>
+                                <th>Status Peminjaman</th>
+                                <th>ID Buku</th>
+                                <th>NIM Pengguna</th>
+                                <th>Action</th>
+                            </tr>
+                        </table>
                 </div>
+
             </div>
         </div>
     </div>
