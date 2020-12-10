@@ -68,8 +68,6 @@ Route::get('/Dashboard', function () {
     return view('home');
 });
 
-<<<<<<< HEAD
-=======
 Route::get('/admin', function () {
     return view('adminhome');
 });
