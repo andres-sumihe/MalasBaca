@@ -21,7 +21,7 @@
 
         <div class="bg-white border-right" id="sidebar-wrapper">
             <div class="sidebar-heading px-4 pt-3 pb-1 d-flex justify-content-between align-items-center"><a
-                    href="index.html" class="cards" style="text-decoration: none;">
+                    href="#" class="cards" style="text-decoration: none;">
                     <h4><span class="text-imk font-weight-bold">Malas</span>Baca</h4>
                 </a></div>
             <hr style="margin: 0; border: 1px solid black">
@@ -48,7 +48,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
                 <button class="btn" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
-                <a href="index.html" class="cards">
+                <a href="#" class="cards">
                     <h4 class=" mt-1 mx-1"> <span class="text-imk font-weight-bold"> Malas</span>Baca</h4>
                 </a>
 
@@ -58,7 +58,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav navbar-nav ml-auto align-items-center">
                         <li class="nav-item active mx-2">
-                            <a class="nav-link" href="#"><i class=" text-secondary fa fa-plus fa-lg" aria-hidden="true"></i></a>
+                            <!-- <a class="nav-link" href="#"><i class=" text-secondary fa fa-plus fa-lg" aria-hidden="true"></i></a> -->
                         </li>
                         <li class="nav-item mx-2">
                             <i class="fa fa-ellipsis-v fa-lg text-imk-secondary" aria-hidden="true"></i>

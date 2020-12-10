@@ -122,7 +122,8 @@ class LibController extends Controller
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
-        return view('home',['buku'=>$buku],['pengguna'=>$pengguna],['peminjaman'=>$peminjaman]);
+        $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
+        return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function insertBuku(){
@@ -269,16 +270,16 @@ class LibController extends Controller
     public function readPengumuman(){
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-        $pengumuman = DB::table('pengumuman')->get();
         $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();
         return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function readPengumuman_Dashboard(){
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-        $pengumuman = DB::table('pengumuman')->get();
         $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();
         return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
