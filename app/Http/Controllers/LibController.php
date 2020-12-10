@@ -53,9 +53,11 @@ class LibController extends Controller
 
     //pengguna=============================================================================================
     public function readPengguna(){
-    	$pengguna = DB::table('pengguna')->get();
-        $buku = DB::table('buku')->get();
-    	return view('adminhome',['pengguna'=>$pengguna],['buku'=>$buku]);
+    	$buku = DB::table('buku')->get();
+        $pengguna = DB::table('pengguna')->get();
+        $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
+        return view('adminhome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function insertPengguna(){
@@ -113,9 +115,10 @@ class LibController extends Controller
     public function readBuku(){
     	$buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-    	return view('adminhome',['buku'=>$buku],['pengguna'=>$pengguna]);
-        // $buku = DB::table('buku')->get();
-        // return view('adminKelolaBuku-read',['buku'=>$buku]);
+        $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
+        return view('adminhome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        
     }
     
     public function readBuku_Dashboard(){

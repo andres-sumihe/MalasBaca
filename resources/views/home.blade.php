@@ -186,25 +186,19 @@
                         <h3><strong>Daftar Buku</strong></h3>
                         <table class="table table-hover">
                             <tr>
-                                <td>ID Buku</td>
                                 <td>Judul Buku</td>
                                 <td>Penulis</td>
                                 <td>Penerbit</td>
-                                <td>Cover</td>
-                                <td>Stok Buku</td>
-                                <td>Status Buku</td>
                                 <td>Tahun</td>
+                                <td>Status Buku</td>
                             </tr>
                             <?php foreach ($buku as $b): ?>
                                 <tr>
-                                    <td>{{$b->id_buku}}</td>
                                     <td>{{$b->nama_buku}}</td>
                                     <td>{{$b->penulis_buku}}</td>
                                     <td>{{$b->penerbit_buku}}</td>
-                                    <td>{{$b->url_cover}}</td>
-                                    <td>{{$b->stok_buku}}</td>
-                                    <td>{{$b->status_buku}}</td>
                                     <td>{{$b->tahun}}</td>
+                                    <td>{{$b->status_buku}}</td>
                                 </tr>
                             <?php endforeach ?>
                         </table>
