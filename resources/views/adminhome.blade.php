@@ -183,7 +183,11 @@
                                     </tr>
                                     <tr>
                                         <td>Status</td>
-                                        <td><input type="text" name="status_buku" required class="form-control"></td>
+                                        <td>
+                                        <select id="status_buku"  name="status_buku" class="form-control" required>
+                                            <option selected>Tersedia</option>
+                                            <option>Tidak Tersedia</option>
+                                        </select>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -198,11 +202,13 @@
                 Data Buku
                 <table class="table table-stripped table-bordered">
                     <tr>
-                        <th>ID Buku</th>
-                        <th>Nama Buku</th>
-                        <th>Penulis Buku</th>
-                        <th>Penerbit Buku</th>
-                        <th>URL Cover Buku</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Penulis</th>
+                        <th>Penerbit</th>
+                        <th>Stok</th>
+                        <th>Status</th>
+                        <!-- <th>URL Cover Buku</th> -->
                         <th>Tahun</th>
                         <th>Action</th>
                     </tr>
@@ -212,7 +218,9 @@
                             <td>{{ $b->nama_buku }}</td>
                             <td>{{ $b->penulis_buku }}</td>
                             <td>{{ $b->penerbit_buku }}</td>
-                            <td>{{ $b->url_cover }}</td>
+                            <!-- <td>{{ $b->url_cover }}</td> -->
+                            <td>{{ $b->stok_buku }}</td>
+                            <td>{{ $b->status_buku }}</td>
                             <td>{{ $b->tahun }}</td>
                             <td>
                                 <a class="cards" href="#Modal" data-toggle="modal" data-target="#Modal" data-whatever="TEST"
@@ -297,7 +305,12 @@
                         </tr>
                         <tr>
                             <td>Status Buku</td>
-                            <td><input type="text" name="status_buku" id="Status" required></td>
+                            <td>
+                                <select id="status_buku"  name="status_buku" class="form-control" required>
+                                    <option selected>Tersedia</option>
+                                    <option>Tidak Tersedia</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <td>Tahun</td>
