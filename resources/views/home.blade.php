@@ -205,7 +205,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Akun-tab" >
-                        <h3><strong>Akun</strong></h3>
+                    <h3><strong>Akun</strong></h3>
+                    <form method="post" action="">    
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">NIM</label>
                           <input type="text" class="form-control" id="exampleFormControlInput1" value="nim_pengguna" disabled>
@@ -214,7 +215,22 @@
                           <label for="exampleFormControlInput1" class="form-label">Nama</label>
                           <input type="text" class="form-control" id="exampleFormControlInput1" value="nama_pengguna">
                         </div>
-
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" value="email_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">No. Telp</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" value="phone_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+                          <input type="text-area" class="form-control" id="exampleFormControlInput1" value="address_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <input type="submit" class="button btn-primary" value="Save Changes">
+                        </div>
+                    </form>
                         <!-- Ganti Password -->
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Ganti Password
