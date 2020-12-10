@@ -90,7 +90,7 @@
                                             data-year="{{$b->tahun}}">
                                             <div style="background-image: url('{{ $b->url_cover }}');" class="d-flex text-white rounded ds">
                                                 
-                                            </div>
+                                            </div>{{$b->nama_buku}}
                                         </a>
                                     </div>
                                 <?php endforeach ?>
@@ -163,7 +163,14 @@
                                         <?php foreach ($resultBuku as $rB): ?>
                                             <tr>
                                                 <td>{{ $rB->nama_buku }}</td>
-                                                <td><a href="">Detail</a>
+                                                <td><a class="cards" href="#Modal" data-toggle="modal" data-target="#Modal" data-whatever="TEST"
+                                                    data-id="{{$b->id_buku}}"
+                                                    data-title="{{$b->nama_buku}}"
+                                                    data-author="{{$b->penulis_buku}}"
+                                                    data-publisher="{{$b->penerbit_buku}}"
+                                                    data-url="{{$b->url_cover}}"
+                                                    data-year="{{$b->tahun}}">
+                                                    Detail</a>
                                             </tr>
                                         <?php endforeach ?>
                                     </table>
@@ -309,7 +316,7 @@
             </div>
             <div class="modal-footer">
                 <div class="d-flex flex-row">
-                    <p>Stok</p>
+                    <p>Stok : {{$b->stok_buku}}</p>
                 </div>
             </div>
             </div>
