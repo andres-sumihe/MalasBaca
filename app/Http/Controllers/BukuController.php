@@ -11,6 +11,11 @@ class BukuController extends Controller
     	$buku = DB::table('buku')->get();
     	return view('adminKelolaBuku-read',['buku'=>$buku]);
     }
+	
+	public function readBuku_Dashboard(){
+    	$buku = DB::table('buku')->get();
+    	return view('home',['buku'=>$buku]);
+    }
 
     public function insertBuku(){
     	return view('adminKelolaBuku-insert');

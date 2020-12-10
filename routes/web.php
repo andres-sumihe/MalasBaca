@@ -64,3 +64,4 @@ Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.up
 Route::get('/Dashboard', function () {
     return view('home');
 });
+Route::get('/Dashboard', 'BukuController@readBuku_Dashboard');
