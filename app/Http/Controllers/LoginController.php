@@ -18,4 +18,15 @@ class LoginController extends Controller
    		}
    	
    }
+   public function AdmincheckLoginFunction(Request $req){
+         $admin = DB::table('admin')->get();
+         foreach ($admin as $a) {
+            if ($a->id_admin == $req->id && $a->password_admin == $req->password) {
+               return view('adminsuccessLogin',['admin'=>$admin]);
+            }else{
+               return redirect('/admin/login');
+            }
+         }
+      
+   }
 }
