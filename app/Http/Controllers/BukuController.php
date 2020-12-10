@@ -9,7 +9,7 @@ class BukuController extends Controller
 {
     public function readBuku(){
     	$buku = DB::table('buku')->get();
-    	return view('adminKelolaBuku-read',['buku'=>$buku]);
+    	return view('adminhome',['buku'=>$buku]);
     }
 	
 	public function readBuku_Dashboard(){
@@ -34,17 +34,17 @@ class BukuController extends Controller
     	     'tahun' => $req->tahun
     		]
     	);
-    	return redirect('/admin/readBuku');
+    	return redirect('/admin');
     }
 
    	public function deleteBuku($id_buku){
    		DB::table('buku')->where('id_buku', $id_buku)->delete();
-   		return redirect('/admin/readBuku');
+   		return redirect('/admin');
     }
 
     public function updateBuku($id_buku){
     	$result = DB::table('buku')->where('id_buku', $id_buku)->get();
-    	return view('adminKelolaBuku-update', ['result'=>$result]);
+    	return view('/admin', ['result'=>$result]);
     }	
 
     public function saveUpdateBuku(Request $req){
@@ -60,7 +60,7 @@ class BukuController extends Controller
     	     'tahun' => $req->tahun
     		]
     	);
-    	return redirect('/admin/readBuku');
+    	return redirect('/admin');
     }
 
     public function cariBuku(){

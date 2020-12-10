@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body style="background-image: url('/assets/img/bg.jpeg')">
     <div class="d-flex" id="wrapper">
 
         <div class="bg-white border-right" id="sidebar-wrapper">
@@ -72,13 +72,40 @@
 
             <div class="container-imk mx-auto my-3 bg-white rounded py-3 px-3 tab-content" id="nav-tabContent">
                 <div class="col-md-12 col-lg-12 tab-pane fade show active" id="Dashboard" role="tabpanel" aria-labelledby="Dashboard-tab" >
-                        Dashboard
+                        
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-User" role="tabpanel" aria-labelledby="Daftar-User-tab" >
                         Daftar-User
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Buku" role="tabpanel" aria-labelledby="Daftar-Buku-tab" >
-                        Daftar-Buku
+                    
+
+                <!-- READ BUKU -->
+                <table class="table table-stripped table-bordered">
+                    <tr>
+                        <th>ID Buku</th>
+                        <th>Nama Buku</th>
+                        <th>Penulis Buku</th>
+                        <th>Penerbit Buku</th>
+                        <th>URL Cover Buku</th>
+                        <th>Tahun</th>
+                        <th>Action</th>
+                    </tr>
+                    <?php foreach ($buku as $b): ?>
+                        <tr>
+                            <td>{{ $b->id_buku }}</td>
+                            <td>{{ $b->nama_buku }}</td>
+                            <td>{{ $b->penulis_buku }}</td>
+                            <td>{{ $b->penerbit_buku }}</td>
+                            <td>{{ $b->url_cover }}</td>
+                            <td>{{ $b->tahun }}</td>
+                            <td><a href="/admin/updateBuku/{{ $b->id_buku }}">Edit</a> | <a href="/admin/deleteBuku/{{ $b->id_buku }}">Hapus</a></td>
+                        </tr>
+                    <?php endforeach ?>
+                </table>
+                <br>
+                <br>
+                
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Daftar-Transaksi-tab" >
                         Daftar-Transaksi
@@ -88,6 +115,69 @@
     </div>
     </div>
 
+    </div>
+
+
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">UPDATE Buku</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-row">
+                <form method="post" action="/admin/update-buku">
+                    {{ csrf_field() }}
+                    <table>
+                        <td><input type="hidden" name="id_buku" id="id_buku" required></td>
+
+                        <tr>
+                            <td>Nama Buku</td>
+                            <td><input type="text" name="nama_buku" id="Title" required></td>
+                        </tr>
+                        <tr>
+                            <td>Penulis Buku</td>
+                            <td><input type="text" name="penulis_buku" id="Author" required></td>
+                        </tr>
+                        <tr>
+                            <td>Penerbit Buku</td>
+                            <td><input type="text" name="penerbit_buku" id="Publisher" required></td>
+                        </tr>
+                        <tr>
+                            <td>URL Cover Buku</td>
+                            <td><input type="text" name="url_cover" id="cover" required></td>
+                        </tr>
+                        <tr>
+                            <td>Stok Buku</td>
+                            <td><input type="text" name="stok_buku" id="Stock" required></td>
+                        </tr>
+                        <tr>
+                            <td>Status Buku</td>
+                            <td><input type="text" name="status_buku" id="Status" required></td>
+                        </tr>
+                        <tr>
+                            <td>Tahun</td>
+                            <td><input type="text" name="tahun" id="year" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Update Buku" required></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex flex-row">
+                    <p>MalasBaca Library App</p>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="/js/app.js"></script>
@@ -99,6 +189,31 @@
             $("#wrapper").toggleClass("toggled");
         });
 
+    </script>
+
+    <script>
+        $('#Modal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var recipient = button.data('whatever');
+        var title = button.data('title'); 
+        var book_id = button.data('id');    
+        var author = button.data('author'); 
+        var publisher = button.data('publisher'); 
+        var url = button.data('url');
+        var year = button.data('year');
+        var stok = button.data('stok');
+        var status = button.data('status');
+            
+        var modal = $(this);
+        var background =  "background-image: url('"+url+"');";
+        modal.find('#cover').attr("value", url);
+        modal.find('#Title').attr("value", title);
+        modal.find('#Author').attr("value", author);
+        modal.find('#Publisher').attr("value", publisher);
+        modal.find('#Year').attr("value", year);
+        modal.find('#Stock').attr("value", stock);
+        modal.find('#Status').attr("value", status);
+        })
     </script>
 
 </body>
