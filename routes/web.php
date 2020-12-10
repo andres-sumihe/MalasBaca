@@ -40,7 +40,7 @@ Route::post('/AdmincheckLogin', 'LoginController@AdmincheckLoginFunction')->name
 //Route CRUD Buku
 Route::get('/admin', 'BukuController@readBuku');
 Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
-Route::post('/admin', 'BukuController@saveBuku')->name('saveBuku');
+Route::post('/admin/buku/insert', 'BukuController@saveBuku')->name('saveBuku');
 Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
 Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
 Route::post('/admin/update-buku', 'BukuController@saveUpdateBuku');
@@ -74,8 +74,8 @@ Route::get('/admin/updatePeminjaman/{id_Peminjaman}', 'PeminjamanController@upda
 Route::post('/admin/saveUpdatePeminjaman', 'PeminjamanController@saveUpdatePeminjaman');
 
 //File Upload
-Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
-Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+Route::get('admin', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('admin', 'FileUploadController@fileUploadPost')->name('file.upload.post');
 
 //Dashboard
 Route::get('/Dashboard', function () {
