@@ -75,17 +75,50 @@
                         
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-User" role="tabpanel" aria-labelledby="Daftar-User-tab" >
-                
-                
+                <form method="post" action="{{ route('savePengguna') }}">
+                    {{ csrf_field() }}
+                    Tambah Pengguna Baru <br>
+                    <table>
+                        <tr>
+                            <td style="width:80px">NIM</td>
+                            <td><input type="text" name="nim_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td style="width:80px">Nama</td>
+                            <td><input type="text" name="nama_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td style="width:80px">Email</td>
+                            <td><input type="text" name="email_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td style="width:80px">Password</td>
+                            <td><input type="text" name="password_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td style="width:80px">No. HP</td>
+                            <td><input type="text" name="phone_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td style="width:80px">Alamat</td>
+                            <td><input type="text" name="address_pengguna" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><br><input type="submit" value="Insert Pengguna" required></td>
+                        </tr>
+                    </table>
+                </form>
+                <br>
                 <!-- DAFTAR USER -->
-                <table border="1">
+                <table class="table table-stripped table-bordered">
                     <tr>
-                        <th>NIM Pengguna</th>
-                        <th>Nama Pengguna</th>
-                        <th>Email Pengguna</th>
-                        <th>Password Pengguna</th>
-                        <th>No. HP Pengguna</th>
-                        <th>Alamat Pengguna</th>
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>No. HP</th>
+                        <th>Alamat</th>
                         <th>Action</th>
                     </tr>
                     <?php foreach ($pengguna as $p): ?>
