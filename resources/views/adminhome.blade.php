@@ -72,6 +72,26 @@
 
             <div class="container-imk mx-auto my-3 bg-white rounded py-3 px-3 tab-content" id="nav-tabContent">
                 <div class="col-md-12 col-lg-12 tab-pane fade show active" id="Dashboard" role="tabpanel" aria-labelledby="Dashboard-tab" >
+                        Pengumuman
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <form method="post" action="{{ route('savePengumuman') }}">
+                                {{ csrf_field() }}
+
+                                    <div class="form-group">
+                                        <label for="jdlPengumuman">Judul</label>
+                                        <input name="title_pengumuman" type="text" class="form-control" id="jdlPengumuman" aria-describedby="judulPengumuman" placeholder="Judul Pengumuman">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="isi">Isi</label>
+                                        <textarea name="isi_pengumuman" class="form-control" id="isi" placeholder="Masukkan isi pengumuman"></textarea>
+                                    </div>
+
+                                    <input type="submit" value="Insert Pengumuman" class="btn btn-success" required>
+                                </form>
+                            </div>
+                        </div>
                         
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-User" role="tabpanel" aria-labelledby="Daftar-User-tab" >

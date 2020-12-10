@@ -117,10 +117,11 @@
                             </div>
                             <h3 class="font-weight-bold">Pengumuman</h3>
                             <div class=" card imk-shadow col-lg-11   mt-4 px-2 py-2 border-0 text-imk-secondary" >
-                                <p><span class="font-weight-bold">Interaksi Manusia dan Komputer A</span> <br />
-                                Immanuel Yosian Leo telah menambahkan komentar</p>
-                                <p><span class="font-weight-bold">Interaksi Manusia dan Komputer A</span> <br />
-                                Awanda Ardaneswari,S.Kom telah menambahkan komentar</p>
+                                <?php foreach ($pengumuman as $p): ?>
+                                    <p><span class="font-weight-bold">{{$p->title_pengumuman}}</span> <br />
+                                    {{$p->isi_pengumuman}}</p>
+                                <?php endforeach ?>
+                                
                             </div>
                         </div>
                     </div>

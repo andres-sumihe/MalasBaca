@@ -269,16 +269,17 @@ class LibController extends Controller
     public function readPengumuman(){
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-        $pengumuman = DB::table('Pengumuman')->get();
-        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna]);
+        $pengumuman = DB::table('pengumuman')->get();
+        $peminjaman = DB::table('peminjaman')->get();
+        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function readPengumuman_Dashboard(){
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
-        $pengumuman = DB::table('Pengumuman')->get();
+        $pengumuman = DB::table('pengumuman')->get();
         $peminjaman = DB::table('peminjaman')->get();
-        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function insertPengumuman(){
@@ -289,7 +290,7 @@ class LibController extends Controller
     public function savePengumuman(Request $req){
         DB::table('pengumuman')->insert(
             [
-             'id_pengumuman' => $req->id_pengumuman,
+            //  'id_pengumuman' => $req->id_pengumuman,
              'title_pengumuman' => $req->title_pengumuman,
              'isi_pengumuman' => $req->isi_pengumuman
             ]
