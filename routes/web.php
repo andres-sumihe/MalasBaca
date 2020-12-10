@@ -38,7 +38,7 @@ Route::get('/admin/logout', 'LoginController@LogoutAdmin');
 Route::post('/AdmincheckLogin', 'LoginController@AdmincheckLoginFunction')->name('adminloginCheck');
 
 //Route CRUD Buku
-Route::get('/admin', 'BukuController@readBuku');
+//Route::get('/admin', 'BukuController@readBuku');
 Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
 Route::post('/admin/buku/insert', 'BukuController@saveBuku')->name('saveBuku');
 Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
@@ -50,7 +50,7 @@ Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');
 Route::post('cariBukuResult', 'BukuController@cariBukuResult')->name('cariBukuResult');
 
 //Route CRUD Pengguna
-Route::get('/admin', 'PenggunaController@readPengguna');
+//Route::get('/admin', 'PenggunaController@readPengguna');
 Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
 Route::post('/admin/savePengguna', 'PenggunaController@savePengguna')->name('savePengguna');
 Route::get('/admin/deletePengguna/{nim_pengguna}', 'PenggunaController@deletePengguna')->name('deletePengguna');
@@ -89,7 +89,8 @@ Route::get('/admin', function () {
 });
 */
 
-Route::get('/admin', 'BukuController@readBuku');
+Route::get('/admin/buku', 'BukuController@readBuku');
+Route::get('/admin/pengguna', 'PenggunaController@readPengguna');
 
 //Ganti Password
 Route::post('/gantipassword','PenggunaController@gantipassword');
