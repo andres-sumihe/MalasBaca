@@ -54,5 +54,14 @@ class PenggunaController extends Controller
     	);
     	return redirect('/admin/readPengguna');
     }
+    public function gantipassword(Request $req)
+    {
+        DB::table('pengguna')->where('nim_pengguna', $req->nim_pengguna)->update(
+            [
+             'password_pengguna' => $req->password_baru
+            ]
+        );
+        return redirect('/Dashboard');
+    }
 
 }

@@ -86,3 +86,5 @@ Route::get('/Dashboard', 'BukuController@readBuku_Dashboard');
 Route::get('/admin', function () {
     return view('adminhome');
 });
+//Ganti Password
+Route::post('/gantipassword','PenggunaController@gantipassword');

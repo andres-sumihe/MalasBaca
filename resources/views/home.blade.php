@@ -12,7 +12,7 @@
     <link rel="icon" href="/assets/img/logoku.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="img/logoku.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 
 </head>
 
@@ -135,7 +135,52 @@
                         Daftar-Buku
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Akun-tab" >
-                        Akun
+                        <h3><strong>Akun</strong></h3>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">NIM</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" value="nim_pengguna" disabled>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Nama</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" value="nama_pengguna">
+                        </div>
+
+                        <!-- Ganti Password -->
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                          Ganti Password
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                
+                                <form action="/gantipassword" method="post">
+                                    {{csrf_field()}}
+                                    <div class="mb-3">
+                                      <input type="password" class="form-control" id="password_lama" name="password_lama" placeholder="Password Lama">
+                                    </div>
+                                    <div class="mb-3">
+                                      <input type="password" class="form-control" id="password_baru" name="password_baru" placeholder="Password Baru">
+                                    </div>
+                                    <div class="mb-3">
+                                      <input type="password" class="form-control" id="konfirmasi" name="konfirmasi" placeholder="Konfirmasi Password Baru">
+                                    </div>
+                                
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -218,7 +263,7 @@
         modal.find('#Year').text(year);
         })
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 
 </html>
