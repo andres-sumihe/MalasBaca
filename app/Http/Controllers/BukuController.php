@@ -53,4 +53,16 @@ class BukuController extends Controller
     	);
     	return redirect('/admin/readBuku');
     }
+
+    public function cariBuku(){
+        return view('/testFungsi');
+    }
+
+    public function cariBukuResult(Request $req){
+        
+
+        return redirect('/cariBukuResult');
+    }
+
+
 }

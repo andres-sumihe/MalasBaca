@@ -39,6 +39,10 @@ Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('de
 Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
 Route::post('/admin/saveUpdateBuku', 'BukuController@saveUpdateBuku');
 
+//Tambahan Fungsi Untuk Buku(Test)
+Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');
+Route::post('cariBukuResult', 'BukuController@cariBukuResult')->name('cariBukuResult');
+
 //Route CRUD Pengguna
 Route::get('/admin/readPengguna', 'PenggunaController@readPengguna');
 Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
@@ -54,3 +58,4 @@ Route::post('/admin/saveAdmin', 'AdminController@saveAdmin')->name('saveAdmin');
 Route::get('/admin/deleteAdmin/{id_Admin}', 'AdminController@deleteAdmin')->name('deleteAdmin');
 Route::get('/admin/updateAdmin/{id_Admin}', 'AdminController@updateAdmin')->name('updateAdmin');
 Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
+
