@@ -130,7 +130,15 @@
                             <td>{{ $p->phone_pengguna}}</td>
                             <td>{{ $p->address_pengguna}}</td>
                             <td>
-                                <a href="/admin/updatePengguna/{{ $p->nim_pengguna }}">Edit</a> | 
+                                <!-- <a href="/admin/updatePengguna/{{ $p->nim_pengguna }}">Edit</a> |  -->
+                                <a class="cards" href="#ModalPengguna" data-toggle="modal" data-target="#ModalPengguna" data-whatever="TEST"
+                                    data-id="{{$p->nim_pengguna}}"
+                                    data-nama="{{$p->nama_pengguna}}"
+                                    data-email="{{$p->email_pengguna}}"
+                                    data-password="{{$p->password_pengguna}}"
+                                    data-phone="{{$p->phone_pengguna}}"
+                                    data-address="{{$p->address_pengguna}}">
+                                Edit</a>|
                                 <a href="/admin/deletePengguna/{{ $p->nim_pengguna }}">Hapus</a>
                             </td>
                         </tr>
@@ -165,14 +173,6 @@
                                         <td>
                                             <input type="file" name="file" class="form-control">
                                         </td>
-                                        
-                        
-                        
-                                    </div>
-                                    <!-- <tr>
-                                        <td>URL Cover Buku</td>
-                                        <td><input type="text" name="url_cover" required class="form-control"></td>
-                                    </tr> -->
                                     <tr>
                                         <td>Tahun</td>
                                         <td><input type="text" name="tahun" required class="form-control"></td>
@@ -223,7 +223,7 @@
                             <td>{{ $b->status_buku }}</td>
                             <td>{{ $b->tahun }}</td>
                             <td>
-                                <a class="cards" href="#Modal" data-toggle="modal" data-target="#Modal" data-whatever="TEST"
+                                <a class="cards" href="#ModalBuku" data-toggle="modal" data-target="#ModalBuku" data-whatever="TEST"
                                     data-id="{{$b->id_buku}}"
                                     data-title="{{$b->nama_buku}}"
                                     data-author="{{$b->penulis_buku}}"
@@ -262,11 +262,65 @@
 
     </div>
 
+<!-- Modal Pengguna -->
+    <div class="modal fade" id="ModalPengguna" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Update Pengguna</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-row">
+                <form method="post" action="/admin/saveUpdatePengguna/{{ $p->nim_pengguna }}">
 
+                <!-- CEK DONG, KENAPA INI GA JADI :(  -->
+                    {{ csrf_field() }}
+                    <table>
+                        <tr>
+                            <td>NIM</td>
+                            <td><input type="text" name="nim_pengguna" id="nim_pengguna" value="{{$p->nim_pengguna}}" disabled></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</td>
+                            <td><input type="text" name="nama_pengguna" id="Nama" value="{{$p->nama_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="email" name="email_pengguna" id="Email" value="{{$p->email_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" name="password_pengguna" id="Password" value="{{$p->password_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Phone</td>
+                            <td><input type="text" name="phone_pengguna" id="Phone" value="{{$p->phone_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Address</td>
+                            <td><input type="text" name="address_pengguna" id="Address" value="{{$p->address_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Save Changes" required></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex flex-row">
+                    <p>MalasBaca Library App</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
 
     
-    <!-- Modal -->
-    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+    <!-- Modal Buku-->
+    <div class="modal fade" id="ModalBuku" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -281,27 +335,27 @@
                 <!-- CEK DONG, KENAPA INI GA JADI :(  -->
                     {{ csrf_field() }}
                     <table>
-                        <td><input type="hidden" name="id_buku" id="id_buku" required></td>
+                        <td><input type="hidden" name="id_buku" id="id_buku" value="{{$b->id_buku}}" required></td>
 
                         <tr>
                             <td>Nama Buku</td>
-                            <td><input type="text" name="nama_buku" id="Title" required></td>
+                            <td><input type="text" name="nama_buku" id="Title" value="{{$b->nama_buku}}" required></td>
                         </tr>
                         <tr>
                             <td>Penulis Buku</td>
-                            <td><input type="text" name="penulis_buku" id="Author" required></td>
+                            <td><input type="text" name="penulis_buku" id="Author" value="{{$b->penulis_buku}}" required></td>
                         </tr>
                         <tr>
                             <td>Penerbit Buku</td>
-                            <td><input type="text" name="penerbit_buku" id="Publisher" required></td>
+                            <td><input type="text" name="penerbit_buku" id="Publisher" value="{{$b->penerbit_buku}}" required></td>
                         </tr>
                         <tr>
                             <td>URL Cover Buku</td>
-                            <td><input type="text" name="url_cover" id="cover" required></td>
+                            <td><input type="text" name="url_cover" id="cover" value="{{$b->url_cover}}" required></td>
                         </tr>
                         <tr>
                             <td>Stok Buku</td>
-                            <td><input type="text" name="stok_buku" id="Stock" required></td>
+                            <td><input type="text" name="stok_buku" id="Stock" value="{{$b->stok_buku}}" required></td>
                         </tr>
                         <tr>
                             <td>Status Buku</td>
@@ -314,7 +368,7 @@
                         </tr>
                         <tr>
                             <td>Tahun</td>
-                            <td><input type="text" name="tahun" id="Year" required></td>
+                            <td><input type="text" name="tahun" id="Year" value="{{$b->tahun}}" required></td>
                         </tr>
                         <tr>
                             <td></td>
