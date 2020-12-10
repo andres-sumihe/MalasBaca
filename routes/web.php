@@ -50,7 +50,7 @@ Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');
 Route::post('cariBukuResult', 'BukuController@cariBukuResult')->name('cariBukuResult');
 
 //Route CRUD Pengguna
-Route::get('/admin/readPengguna', 'PenggunaController@readPengguna');
+Route::get('/admin', 'PenggunaController@readPengguna');
 Route::get('/admin/insertPengguna', 'PenggunaController@insertPengguna')->name('insertPengguna');
 Route::post('/admin/savePengguna', 'PenggunaController@savePengguna')->name('savePengguna');
 Route::get('/admin/deletePengguna/{nim_pengguna}', 'PenggunaController@deletePengguna')->name('deletePengguna');
