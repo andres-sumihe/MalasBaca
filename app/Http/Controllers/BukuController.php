@@ -25,13 +25,21 @@ class BukuController extends Controller
     }
 
     public function saveBuku(Request $req){
+		$req->validate([
+            'file' => 'required|mimes:jpg,jpeg,png|max:2048',
+        ]);
+  
+        $fileName = $req->id_buku.'.'.$req->file->extension();  
+   
+		$req->file->move(public_path('assets/img'), $fileName); 	
+		$url_cover = "/assets/img/".$fileName;
         DB::table('buku')->insert(
             [
              'id_buku' => $req->id_buku,
              'nama_buku' => $req->nama_buku,
              'penulis_buku' => $req->penulis_buku,
              'penerbit_buku' => $req->penerbit_buku,
-             'url_cover' => $req->url_cover,
+             'url_cover' => $url_cover,
              'stok_buku' => $req->stok_buku,
              'status_buku' => $req->status_buku,
              'tahun' => $req->tahun
@@ -88,6 +96,37 @@ class BukuController extends Controller
         }
         
 
+	}
+	
+	/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function fileUpload()
+    {
+        return view('adminhome');
+    }
+  
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function fileUploadPost(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:jpg,jpeg,png|max:2048',
+        ]);
+  
+        $fileName = "IPA002".'.'.$request->file->extension();  
+   
+        $request->file->move(public_path('assets/img'), $fileName);
+   
+        return back()
+            ->with('success','You have successfully upload file.')
+            ->with('file',$fileName);
+   
     }
 
 

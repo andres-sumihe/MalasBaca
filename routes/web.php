@@ -74,8 +74,8 @@ Route::get('/admin/updatePeminjaman/{id_Peminjaman}', 'PeminjamanController@upda
 Route::post('/admin/saveUpdatePeminjaman', 'PeminjamanController@saveUpdatePeminjaman');
 
 //File Upload
-Route::get('admin', 'FileUploadController@fileUpload')->name('file.upload');
-Route::post('admin', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+Route::get('admin', 'BukuController@fileUpload')->name('file.upload');
+Route::post('admin', 'BukuController@fileUploadPost')->name('file.upload.post');
 
 //Dashboard
 Route::get('/Dashboard', function () {
