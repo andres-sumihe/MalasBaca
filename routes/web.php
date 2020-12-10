@@ -59,3 +59,8 @@ Route::post('/admin/saveUpdateAdmin', 'AdminController@saveUpdateAdmin');
 //File Upload
 Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
 Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+
+//Dashboard
+Route::get('/Dashboard', function () {
+    return view('home');
+});
