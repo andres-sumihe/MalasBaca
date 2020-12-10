@@ -38,17 +38,14 @@ Route::get('/admin/logout', 'LibController@LogoutAdmin');
 Route::post('/AdmincheckLogin', 'LibController@AdmincheckLoginFunction')->name('adminloginCheck');
 
 //Route CRUD Buku
-//Route::get('/admin', 'BukuController@readBuku');
 Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
 Route::post('/admin/buku/insert', 'BukuController@saveBuku')->name('saveBuku');
 Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
-//Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
 Route::post('/admin/updateBuku/{id_buku}', 'BukuController@saveUpdateBuku');
 Route::get('/admin', 'LibController@readBuku');
 Route::get('/admin', 'LibController@insertBuku')->name('insertBuku');
 Route::post('/admin/buku/insert', 'LibController@saveBuku')->name('saveBuku');
 Route::get('/admin/deleteBuku/{id_buku}', 'LibController@deleteBuku')->name('deleteBuku');
-//Route::get('/admin/updateBuku/{id_buku}', 'LibController@updateBuku')->name('updateBuku');
 Route::post('/admin/updateBuku/{id_buku}', 'LibController@saveUpdateBuku');
 
 
@@ -57,7 +54,6 @@ Route::get('cariBuku', 'LibController@cariBuku')->name('cariBuku');
 Route::post('cariBukuResult', 'LibController@cariBukuResult')->name('cariBukuResult');
 
 //Route CRUD Pengguna
-//Route::get('/admin', 'LibController@readPengguna');
 Route::get('/admin/insertPengguna', 'LibController@insertPengguna')->name('insertPengguna');
 Route::post('/admin/savePengguna', 'LibController@savePengguna')->name('savePengguna');
 Route::get('/admin/deletePengguna/{nim_pengguna}', 'LibController@deletePengguna')->name('deletePengguna');
@@ -92,34 +88,14 @@ Route::get('/admin/readPengumuman_Dashboard', 'LibController@readPengumuman_Dash
 Route::get('/admin/insertPengumuman', 'LibController@insertPengumuman')->name('insertPengumuman');
 Route::post('/admin/savePengumuman', 'LibController@savePengumuman')->name('savePengumuman');
 Route::get('/admin/deletePengumuman/{id_Pengumuman}', 'LibController@deletePengumuman')->name('deletePengumuman');
-//Route::get('/admin/updatePengumuman/{id_Pengumuman}', 'LibController@updatePengumuman')->name('updatePengumuman');
 Route::post('/admin/updatePengumuman/{id_pengumuman}', 'LibController@saveUpdatePengumuman');
 
-//File Upload
-// Route::get('admin', 'LibController@fileUpload')->name('file.upload');
-// Route::post('admin', 'LibController@fileUploadPost')->name('file.upload.post');
-
-//Dashboard
 Route::get('/Dashboard', function () {
     return view('home');
 });
-Route::get('/Dashboard', 'LibController@readBuku_Dashboard');  //Karena disini dipanggil readBuku_Dashboard yang gada pengumuman
-
-/*
-Route::get('/admin', function () {
-    return view('adminhome');
-});
-*/
-
-Route::get('/admin/buku', 'BukuController@readBuku');
-
-Route::get('/admin/pengguna', 'PenggunaController@readPengguna');	
-
-Route::get('/admin/pengguna', 'LibController@readPengguna');
-
-Route::get('/admin', 'LibController@readBuku');
-
 
 //Ganti Password
 Route::post('/gantipassword','LibController@gantipassword');
+Route::get('/Dashboard', 'LibController@readBuku_Dashboard');  //Karena disini dipanggil readBuku_Dashboard yang gada pengumuman
+Route::get('/admin', 'LibController@readBuku');
 

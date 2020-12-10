@@ -295,14 +295,27 @@
                         <h3><strong>Data Transaksi</strong></h3>
                         <table class="table table-stripped table-hover table-responsive-sm">
                             <tr>
-                                <th>Tanggal</th>
+                                <th>Tanggal Pinjam</th>
                                 <th>Tanggal Kembali</th>
                                 <th>Status</th>
                                 <th>ID Buku</th>
                                 <th>NIM Pengguna</th>
                                 <th>Action</th>
                             </tr>
-                            
+                            <?php foreach ($peminjaman as $p): ?>
+                                <tr>
+                                    <td>{{ $p->id_peminjaman }}</td>
+                                    <td>{{ $p->tanggal_pinjam }}</td>
+                                    <td>{{ $p->tanggal_kembali }}</td>
+                                    <td>{{ $p->status_peminjaman }}</td>
+                                    <td>{{ $p->id_buku}}</td>
+                                    <td>{{ $p->nim_pengguna}}</td>
+                                    <td>
+                                        <a href="/admin/updatePeminjaman/{{ $p->id_peminjaman }}">Edit</a> | 
+                                        <a href="/admin/deletePeminjaman/{{ $p->id_peminjaman }}">Hapus</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
                         </table>
                 </div>
 
