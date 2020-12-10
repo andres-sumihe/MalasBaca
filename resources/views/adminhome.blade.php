@@ -131,7 +131,7 @@
                 </form>
                 <br>
                 <!-- DAFTAR USER -->
-                <table class="table table-stripped table-bordered">
+                <table class="table table-stripped table-bordered table-responsive-sm">
                     <tr>
                         <th>NIM</th>
                         <th>Nama</th>
@@ -220,7 +220,7 @@
                     
                 <!-- READ BUKU -->
                 Data Buku
-                <table class="table table-stripped table-bordered">
+                <table class="table table-stripped table-bordered table-responsive-sm">
                     <tr>
                         <th>ID</th>
                         <th>Nama</th>
@@ -266,7 +266,7 @@
                             {{ csrf_field() }}
                             <table>
                                 <tr>
-                                    <td>Tanggal Pinjam</td>
+                                    <td style="width: 150px">Tanggal Pinjam</td>
                                     <td><input type="date" name="tanggal_pinjam" required class="form-control"></td>
                                 </tr>
                                 <tr>
@@ -287,18 +287,17 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><input type="submit" value="Insert Peminjaman" required class="btn btn-success"></td>
+                                    <td><br><input type="submit" value="Insert Peminjaman" required class="btn btn-success"></td>
                                 </tr>
                             </table>
                         </form>
                         
                         <h3><strong>Data Transaksi</strong></h3>
-                        <table class="table table-stripped table-hover">
+                        <table class="table table-stripped table-hover table-responsive-sm">
                             <tr>
-                                <th>ID Peminjaman</th>
-                                <th>Tanggal Peminjaman</th>
+                                <th>Tanggal</th>
                                 <th>Tanggal Kembali</th>
-                                <th>Status Peminjaman</th>
+                                <th>Status</th>
                                 <th>ID Buku</th>
                                 <th>NIM Pengguna</th>
                                 <th>Action</th>
