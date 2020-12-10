@@ -25,6 +25,12 @@ Route::get('/loginError', function () {
 
 Route::post('/checkLogin', 'LoginController@checkLoginFunction')->name('loginCheck');
 
+//Login Admin
+Route::get('/admin/login', function () {
+    return view('adminloginPage');
+});
+Route::post('/AdmincheckLogin', 'LoginController@AdmincheckLoginFunction')->name('adminloginCheck');
+
 //Route CRUD Buku
 Route::get('/admin/readBuku', 'BukuController@readBuku');
 Route::get('/admin/insertBuku', 'BukuController@insertBuku')->name('insertBuku');
