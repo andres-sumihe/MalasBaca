@@ -42,8 +42,8 @@ Route::get('/admin', 'BukuController@readBuku');
 Route::get('/admin', 'BukuController@insertBuku')->name('insertBuku');
 Route::post('/admin/buku/insert', 'BukuController@saveBuku')->name('saveBuku');
 Route::get('/admin/deleteBuku/{id_buku}', 'BukuController@deleteBuku')->name('deleteBuku');
-Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
-Route::post('/admin/update-buku', 'BukuController@saveUpdateBuku');
+//Route::get('/admin/updateBuku/{id_buku}', 'BukuController@updateBuku')->name('updateBuku');
+Route::post('/admin/updateBuku/{id_buku}', 'BukuController@saveUpdateBuku');
 
 //Tambahan Fungsi Untuk Buku(Test)
 Route::get('cariBuku', 'BukuController@cariBuku')->name('cariBuku');

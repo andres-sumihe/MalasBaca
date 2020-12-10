@@ -129,7 +129,47 @@
                         Daftar-Pinjam
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Cari-Buku" role="tabpanel" aria-labelledby="Cari-Buku-tab" >
-                        Cari-Buku
+                        <div class="container">
+                            <h3><strong>Cari Buku</strong></h3>
+                            <div class="row">
+                                <form method="post" action="{{ route('cariBukuResult') }}">
+                                    {{ csrf_field() }}
+                                    <table>
+                                        <tr>
+                                            <td><input type="text" name="input" placeholder="Cari Buku" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <select name="buku" id="buku">
+                                                  <option value="" selected="true" disabled="true">--Filter Berdasarkan--</option>
+                                                  <option value="nama">Nama Buku</option>
+                                                  <option value="penulis">Penulis Buku</option>
+                                                  <option value="penerbit">Penerbit Buku</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>                                    
+                                        <tr>
+                                            <td><input type="submit" value="Cari Buku" required></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                                <?php if (isset($resultBuku)): ?>
+                                    <table border="1">
+                                        <tr>
+                                            <th>Nama Buku</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <?php foreach ($resultBuku as $rB): ?>
+                                            <tr>
+                                                <td>{{ $rB->nama_buku }}</td>
+                                                <td><a href="">Detail</a>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </table>
+                                <?php endif ?>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Buku" role="tabpanel" aria-labelledby="Daftar-Buku-tab" >
                     <div class="container">
@@ -165,7 +205,8 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Akun" role="tabpanel" aria-labelledby="Akun-tab" >
-                        <h3><strong>Akun</strong></h3>
+                    <h3><strong>Akun</strong></h3>
+                    <form method="post" action="">    
                         <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label">NIM</label>
                           <input type="text" class="form-control" id="exampleFormControlInput1" value="nim_pengguna" disabled>
@@ -174,7 +215,22 @@
                           <label for="exampleFormControlInput1" class="form-label">Nama</label>
                           <input type="text" class="form-control" id="exampleFormControlInput1" value="nama_pengguna">
                         </div>
-
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" value="email_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">No. Telp</label>
+                          <input type="text" class="form-control" id="exampleFormControlInput1" value="phone_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+                          <input type="text-area" class="form-control" id="exampleFormControlInput1" value="address_pengguna">
+                        </div>
+                        <div class="mb-3">
+                          <input type="submit" class="button btn-primary" value="Save Changes">
+                        </div>
+                    </form>
                         <!-- Ganti Password -->
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
                           Ganti Password
