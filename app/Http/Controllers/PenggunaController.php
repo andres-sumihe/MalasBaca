@@ -9,7 +9,7 @@ class PenggunaController extends Controller
 {
     public function readPengguna(){
     	$pengguna = DB::table('pengguna')->get();
-    	return view('adminKelolaPengguna-read',['pengguna'=>$pengguna]);
+    	return view('adminhome',['pengguna'=>$pengguna]);
     }
 
     public function insertPengguna(){
