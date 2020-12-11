@@ -277,7 +277,12 @@
                                 </tr>
                                 <tr>
                                     <td>Status Peminjaman</td>
-                                    <td><input type="text" name="status_peminjaman" required class="form-control"></td>
+                                    <td>
+                                        <select name="status_peminjaman" id="buku" class="form-control">
+                                            <option value="Ongoing" selected>Ongoing</option>
+                                            <option value="Selesai" disabled>Selesai</option>
+                                        </select>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>ID Buku</td>

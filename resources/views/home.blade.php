@@ -101,20 +101,16 @@
                         <div class="col-md-6 col-lg-6">
                             <h3 class="font-weight-bold">Pengingat Pinjaman</h3>
                             <div class="col-lg-12 row justify-content-between mt-4 mb-5" >
-                            <div class="col-md-4 px-1 col-lg-6 col-sm-12 mb-2">
-                                <a class="cards" href="tugas-kelas.html">
-                                <div class="bgds-3 d-flex text-white justify-content-center rounded align-items-center ds2 ">
-                                    <h4 class="font-weight-bold">SBD</h4>
-                                </div>
-                                </a>
-                            </div>
-                            <div class="col-md-4 px-1 col-lg-6 col-sm-12 mb-2 ">
-                                <a class="cards" href="tugas-kelas.html">
-                                <div class="bgds-3 d-flex text-white justify-content-center rounded align-items-center ds2" >
-                                    <h4 class="font-weight-bold">Jarkom</h4>
-                                </div>
-                                </a>
-                            </div>
+                                <?php for ($i=0; $i<2;$i++){ ?>
+                                  
+                                    <div class="col-md-4 px-1 col-lg-6 col-sm-12 mb-2">
+                                        <a class="cards" href="tugas-kelas.html">
+                                        <div class="bgds-3 d-flex text-white p-3 justify-content-center rounded align-items-center ds2 ">
+                                            <h6 class="font-weight-bold">{{ $peminjamanJoinBuku[$i]->nama_buku}}</h6>
+                                        </div>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                             <h3 class="font-weight-bold">Pengumuman</h3>
                             <div class=" card imk-shadow col-lg-11   mt-4 px-2 py-2 border-0 text-imk-secondary" >
