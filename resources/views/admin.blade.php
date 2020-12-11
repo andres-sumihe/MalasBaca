@@ -311,14 +311,13 @@
                             </tr>
                             <?php foreach ($peminjaman as $pem): ?>
                                 <tr>
-                                    <td>{{ $pem->id_peminjaman }}</td>
                                     <td>{{ $pem->tanggal_pinjam }}</td>
                                     <td>{{ $pem->tanggal_kembali }}</td>
                                     <td>{{ $pem->status_peminjaman }}</td>
                                     <td>{{ $pem->id_buku}}</td>
                                     <td>{{ $pem->nim_pengguna}}</td>
                                     <td>
-                                        <a href="/admin/updatePeminjaman/{{ $pem->id_peminjaman }}">Edit</a> | 
+                                        <a class="cards" href="#ModalTransaksi" data-toggle="modal" data-target="#ModalTransaksi">Edit</a> | 
                                         <a href="/admin/deletePeminjaman/{{ $pem->id_peminjaman }}">Hapus</a>
                                     </td>
                                 </tr>
@@ -372,6 +371,63 @@
                         <tr>
                             <td>Address</td>
                             <td><input type="text" name="address_pengguna" id="Address" value="{{$p->address_pengguna}}" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Save Changes" required></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="d-flex flex-row">
+                    <p>MalasBaca Library App</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit Transaksi -->
+    <div class="modal fade" id="ModalTransaksi" tabindex="-1" role="dialog" aria-labelledby="ModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Update Pengguna</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body d-flex flex-row">
+            <form method="post" action="/admin/saveUpdatePeminjaman/{{ $pem->id_peminjaman }}">
+
+                <!-- CEK DONG, KENAPA INI GA JADI :(  -->
+                    {{ csrf_field() }}
+                    <table>
+                        <tr>
+                            <td style="width: 150px">Tanggal Pinjam</td>
+                            <td><input type="date" name="tanggal_pinjam" required class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Tanggal Kembali</td>
+                            <td><input type="date" name="tanggal_kembali" required class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>
+                                <select name="status_peminjaman" id="buku" class="form-control">
+                                    <option value="Ongoing" selected>Ongoing</option>
+                                    <option value="Selesai" >Selesai</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ID Buku</td>
+                            <td><input type="text" name="id_buku" id="Password" value="{{$pem->id_buku}}" required></td>
+                        </tr>
+                        <tr>
+                            <td>NIM</td>
+                            <td><input type="text" name="nim_pengguna" id="Phone" value="{{$pem->nim_pengguna}}" required></td>
                         </tr>
                         <tr>
                             <td></td>
