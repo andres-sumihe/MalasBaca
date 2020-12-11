@@ -22,8 +22,8 @@
 			<form  method="post" action="{{ route('loginCheck') }}">
 				{{ csrf_field() }}
 				<input type="text" id="nim" class="fadeIn second" name="nim" placeholder="NIM" required>
-				<input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
-				<input type="submit" class="fadeIn fourth" value="input">
+				<input type="password" id="password" class="fadeIn third" name="password" placeholder="Password" required>
+				<input type="submit" class="fadeIn fourth" value="Login">
 			</form>
 
 			<!-- Remind Passowrd -->

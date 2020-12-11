@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  $_SESSION['pengguna'] = $pengguna;
+?>
 <!DOCTYPE html>
 <html lang="id">
 
