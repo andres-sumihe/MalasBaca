@@ -128,7 +128,7 @@ class LibController extends Controller
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
         $pengumuman = DB::table('pengumuman')->get();  
-        $peminjamanJoinBuku = DB::table('peminjaman')->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')->get();
+        $peminjamanJoinBuku = DB::table('peminjaman')->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')->where('peminjaman.status_peminjaman', 'Ongoing')->get();
         return view('home')->with(compact('buku','pengguna','peminjaman', 'pengumuman', 'peminjamanJoinBuku'));
         // return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
@@ -210,22 +210,24 @@ class LibController extends Controller
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
         $pengumuman = DB::table('pengumuman')->get();  
+        $peminjamanJoinBuku = DB::table('peminjaman')->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')->where('peminjaman.status_peminjaman', 'Ongoing')->get();
+       
 
         $input = $req->input;
         $bukuFilter = $req->buku;
         if(strcmp($bukuFilter, 'nama') == 0){
             $resultBuku = DB::table('buku')->where('nama_buku', 'like', "%{$input}%")->get();
             // dd($buku);
-            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman', 'peminjamanJoinBuku'));
             // return view('home', ['resultBuku'=>$resultBuku],['buku'=>$buku]);
         }
         if(strcmp($bukuFilter, 'penulis') == 0) {
             $resultBuku = DB::table('buku')->where('penulis_buku', 'like', "%{$input}%")->get();
-            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman', 'peminjamanJoinBuku'));
         }
         if(strcmp($bukuFilter, 'penerbit') == 0) {
             $resultBuku = DB::table('buku')->where('penerbit_buku', 'like', "%{$input}%")->get();
-            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman', 'peminjamanJoinBuku'));
         }
 
     }
