@@ -280,7 +280,7 @@
                                     <td>
                                         <select name="status_peminjaman" id="buku" class="form-control">
                                             <option value="Ongoing" selected>Ongoing</option>
-                                            <option value="Selesai" disabled>Selesai</option>
+                                            <option value="Selesai" selected>Selesai</option>
                                         </select>
                                     </td>
                                 </tr>
