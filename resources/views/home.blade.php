@@ -1,7 +1,3 @@
-<?php
-  session_start();
-  $_SESSION['pengguna'] = $pengguna;
-?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -26,7 +22,7 @@
 
         <div class="bg-white border-right" id="sidebar-wrapper">
             <div class="sidebar-heading px-4 pt-3 pb-1 d-flex justify-content-between align-items-center"><a
-                    href="index.html" class="cards" style="text-decoration: none;">
+                    href="/Dashboard" class="cards" style="text-decoration: none;">
                     <h4><span class="text-imk font-weight-bold">Malas</span>Baca</h4>
                 </a></div>
             <hr style="margin: 0; border: 1px solid black">
@@ -56,7 +52,7 @@
 
             <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
                 <button class="btn" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
-                <a href="index.html" class="cards">
+                <a href="/Dashboard" class="cards">
                     <h4 class=" mt-1 mx-1"> <span class="text-imk font-weight-bold"> Malas</span>Baca</h4>
                 </a>
 
