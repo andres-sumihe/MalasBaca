@@ -337,7 +337,7 @@
                 </button>
             </div>
             <div class="modal-body d-flex flex-row">
-                <form method="post" action="/admin/saveUpdatePengguna/{{ $p->nim_pengguna }}">
+            <form method="post" action="/admin/saveUpdatePengguna/{{ $p->nim_pengguna }}">
 
                 <!-- CEK DONG, KENAPA INI GA JADI :(  -->
                     {{ csrf_field() }}
