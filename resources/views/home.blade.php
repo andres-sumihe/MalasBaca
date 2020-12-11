@@ -9,6 +9,7 @@
     <title>MalasBaca</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -154,46 +155,24 @@
                         <div class="container">
                             <h3><strong>Cari Buku</strong></h3>
                             <div class="row">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputState">State</label>
-                                    <select id="inputState" class="form-control">
-                                        <option value="" selected="true" disabled="true">--Filter Berdasarkan--</option>
-                                        <option value="nama">Nama Buku</option>
-                                        <option value="penulis">Penulis Buku</option>
-                                        <option value="penerbit">Penerbit Buku</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="inputZip">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
-                                </div>
-                            </div>
                                 <form method="post" action="{{ route('cariBukuResult') }}">
-                                    {{ csrf_field() }}
-                                    <table>
-                                        <tr>
-                                            <td><input type="text" name="input" placeholder="Cari Buku" required></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <select name="buku" id="buku">
-                                                  <option value="" selected="true" disabled="true">--Filter Berdasarkan--</option>
-                                                  <option value="nama">Nama Buku</option>
-                                                  <option value="penulis">Penulis Buku</option>
-                                                  <option value="penerbit">Penerbit Buku</option>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>                                    
-                                        <tr>
-                                            <td><input type="submit" value="Cari Buku" required></td>
-                                        </tr>
-                                    </table>
+                                    @csrf
+                                    <div class="form-row">
+                                        <div class="form-group col-md-8">
+                                            <input type="text" class="form-control" id="input"  name="input" placeholder="Cari Buku">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <select name="buku" id="buku" class="form-control">
+                                                <option value="nama" selected>Nama Buku</option>
+                                                <option value="penulis">Penulis Buku</option>
+                                                <option value="penerbit">Penerbit Buku</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <input type="submit" class="btn btn-success" id="search" value="Cari">
+                                        </div>
+                                    </div>
+                                    
                                 </form>
                                 <?php if (isset($resultBuku)): ?>
                                     <table class="table table-hover">
@@ -289,6 +268,7 @@
                               <div class="modal-body">
                                 
                                 <form action="/gantipassword" method="post">
+
                                     {{csrf_field()}}
                                     <div class="mb-3">
                                       <input type="password" class="form-control" id="password_lama" name="password_lama" placeholder="Password Lama">
