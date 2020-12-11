@@ -406,11 +406,11 @@
                     <table>
                         <tr>
                             <td style="width: 150px">Tanggal Pinjam</td>
-                            <td><input type="date" name="tanggal_pinjam" required class="form-control"></td>
+                            <td><input type="date" value="{{$pem->tanggal_pinjam}}" value="" name="tanggal_pinjam" required class="form-control"></td>
                         </tr>
                         <tr>
                             <td>Tanggal Kembali</td>
-                            <td><input type="date" name="tanggal_kembali" required class="form-control"></td>
+                            <td><input type="date" value="{{$pem->tanggal_kembali}}" name="tanggal_kembali" required class="form-control"></td>
                         </tr>
                         <tr>
                             <td>Status</td>
