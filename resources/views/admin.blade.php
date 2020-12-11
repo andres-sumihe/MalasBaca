@@ -302,17 +302,17 @@
                                 <th>NIM Pengguna</th>
                                 <th>Action</th>
                             </tr>
-                            <?php foreach ($peminjaman as $p): ?>
+                            <?php foreach ($peminjaman as $pem): ?>
                                 <tr>
-                                    <td>{{ $p->id_peminjaman }}</td>
-                                    <td>{{ $p->tanggal_pinjam }}</td>
-                                    <td>{{ $p->tanggal_kembali }}</td>
-                                    <td>{{ $p->status_peminjaman }}</td>
-                                    <td>{{ $p->id_buku}}</td>
-                                    <td>{{ $p->nim_pengguna}}</td>
+                                    <td>{{ $pem->id_peminjaman }}</td>
+                                    <td>{{ $pem->tanggal_pinjam }}</td>
+                                    <td>{{ $pem->tanggal_kembali }}</td>
+                                    <td>{{ $pem->status_peminjaman }}</td>
+                                    <td>{{ $pem->id_buku}}</td>
+                                    <td>{{ $pem->nim_pengguna}}</td>
                                     <td>
-                                        <a href="/admin/updatePeminjaman/{{ $p->id_peminjaman }}">Edit</a> | 
-                                        <a href="/admin/deletePeminjaman/{{ $p->id_peminjaman }}">Hapus</a>
+                                        <a href="/admin/updatePeminjaman/{{ $pem->id_peminjaman }}">Edit</a> | 
+                                        <a href="/admin/deletePeminjaman/{{ $pem->id_peminjaman }}">Hapus</a>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
