@@ -62,7 +62,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="nav navbar-nav ml-auto align-items-center">
                         <li class="nav-item active mx-2">
-                            <a class="nav-link" href="#"><i class=" text-secondary fa fa-plus fa-lg" aria-hidden="true"></i></a>
+                            <!-- <a class="nav-link" href="#"><i class=" text-secondary fa fa-plus fa-lg" aria-hidden="true"></i></a> -->
                         </li>
                         <li class="nav-item mx-2">
                             <i class="fa fa-ellipsis-v fa-lg text-imk-secondary" aria-hidden="true"></i>
