@@ -189,7 +189,7 @@ class LibController extends Controller
              'tahun' => $req->tahun
             ]
         );
-        return redirect($url_cover);
+        return redirect('/admin');
     }
 
     public function deleteBuku($id_buku){
@@ -199,10 +199,6 @@ class LibController extends Controller
             if(file_exists(public_path($b->url_cover))){
 
             unlink(public_path($b->url_cover));
-    
-        }else{
-    
-            dd('File does not exists.');
     
         }
         }

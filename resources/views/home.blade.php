@@ -101,7 +101,7 @@
                         <div class="col-md-6 col-lg-6">
                             <h3 class="font-weight-bold">Pengingat Pinjaman</h3>
                             <div class="col-lg-12 row justify-content-between mt-4 mb-5" >
-                                <?php for ($i=0; $i<2;$i++){ ?>
+                                <?php try{for ($i=0; $i<2;$i++){ ?>
                                   
                                     <div class="col-md-4 px-1 col-lg-6 col-sm-12 mb-2">
                                         <a class="cards" href="tugas-kelas.html">
@@ -110,7 +110,9 @@
                                         </div>
                                         </a>
                                     </div>
-                                <?php } ?>
+                                <?php } }catch(Exception $e){
+                                    echo "<p>Tidak Ada Data</p>";
+                                }?>
                             </div>
                             <h3 class="font-weight-bold">Pengumuman</h3>
                             <div class=" card imk-shadow col-lg-11   mt-4 px-2 py-2 border-0 text-imk-secondary" >
