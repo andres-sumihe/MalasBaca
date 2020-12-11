@@ -53,15 +53,16 @@ class LibController extends Controller
 
     //pengguna=============================================================================================
     public function readPengguna(){
-    	$buku = DB::table('buku')->get();
-        $pengguna = DB::table('pengguna')->get();
+        $buku = DB::table('buku')->get();
         $peminjaman = DB::table('peminjaman')->get();
-        $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
-        return view('adminhome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        $pengumuman = DB::table('pengumuman')->get();  
+        $pengguna = DB::table('pengguna')->get();
+        return view('admin')->with(compact('buku','pengguna'));
+        // return view('admin',['pengumuman'=>$pengumuman,'buku'=>$buku,'pengguna'=>$pengguna,'peminjaman'=>$peminjaman]);
     }
 
     public function insertPengguna(){
-    	return view('adminKelolaPengguna-insert');
+    	return view('admin');
     }
 
     public function savePengguna(Request $req){
@@ -85,7 +86,7 @@ class LibController extends Controller
 
     public function updatePengguna($nim_pengguna){
     	$result = DB::table('pengguna')->where('nim_pengguna', $nim_pengguna)->get();
-    	return view('adminKelolaPengguna-update', ['result'=>$result]);
+    	return view('admin', ['result'=>$result]);
     }	
 
     public function saveUpdatePengguna(Request $req, $nim_pengguna){
@@ -117,7 +118,8 @@ class LibController extends Controller
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
         $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
-        return view('adminhome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        return view('admin')->with(compact('buku','pengguna','peminjaman', 'pengumuman'));
+        // return view('admin',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
         
     }
     
@@ -130,7 +132,7 @@ class LibController extends Controller
     }
 
     public function insertBuku(){
-        return view('adminhome');
+        return view('admin');
     }
 
     public function saveBuku(Request $req){
@@ -223,11 +225,11 @@ class LibController extends Controller
     //peminjaman=============================================================================================================
     public function readPeminjaman(){
     	$peminjaman = DB::table('peminjaman')->get();
-    	return view('adminhome',['peminjaman'=>$peminjaman]);
+    	return view('admin',['peminjaman'=>$peminjaman]);
     }
 
     public function insertPeminjaman(){
-    	return view('adminhome');
+    	return view('admin');
     }
 
     public function savePeminjaman(Request $req){
@@ -252,7 +254,7 @@ class LibController extends Controller
 
     public function updatePeminjaman($id_peminjaman){
     	$result = DB::table('peminjaman')->where('id_peminjaman', $id_peminjaman)->get();
-    	return view('adminKelolaPeminjaman-update', ['result'=>$result]);
+    	return view('admin', ['result'=>$result]);
     }	
 
     public function saveUpdatePeminjaman(Request $req){
@@ -275,7 +277,7 @@ class LibController extends Controller
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
         $pengumuman = DB::table('pengumuman')->get();
-        return view('adminHome',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        return view('admin',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function readPengumuman_Dashboard(){
@@ -287,7 +289,7 @@ class LibController extends Controller
     }
 
     public function insertPengumuman(){
-        return view('adminHome');
+        return view('admin');
     }
 
 
@@ -319,6 +321,15 @@ class LibController extends Controller
         );
         return redirect('/admin');
     }   
+
+
+    public function adminView(){
+        $buku = DB::table('buku')->get();
+        $pengguna = DB::table('pengguna')->get();
+        $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();
+        return view('admin',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+    }
 
 
 }
