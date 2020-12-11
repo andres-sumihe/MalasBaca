@@ -311,7 +311,6 @@
                             </tr>
                             <?php foreach ($peminjaman as $pem): ?>
                                 <tr>
-                                    <td>{{ $pem->id_peminjaman }}</td>
                                     <td>{{ $pem->tanggal_pinjam }}</td>
                                     <td>{{ $pem->tanggal_kembali }}</td>
                                     <td>{{ $pem->status_peminjaman }}</td>
