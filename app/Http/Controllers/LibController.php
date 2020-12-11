@@ -128,7 +128,8 @@ class LibController extends Controller
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
         $pengumuman = DB::table('pengumuman')->get();  
-        return view('home')->with(compact('buku','pengguna','peminjaman', 'pengumuman'));
+        $peminjamanJoinBuku = DB::table('peminjaman')->join('buku', 'buku.id_buku', '=', 'peminjaman.id_buku')->get();
+        return view('home')->with(compact('buku','pengguna','peminjaman', 'pengumuman', 'peminjamanJoinBuku'));
         // return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 

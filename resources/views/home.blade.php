@@ -135,14 +135,14 @@
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Kembali</th>
                             <th>Status</th>
-                            <th>ID Buku</th>
+                            <th>Nama Buku</th>
                         </tr>
-                        <?php foreach ($peminjaman as $pem): ?>
+                        <?php foreach ($peminjamanJoinBuku as $pemJB): ?>
                             <tr>
-                                <td>{{ $pem->tanggal_pinjam }}</td>
-                                <td>{{ $pem->tanggal_kembali }}</td>
-                                <td>{{ $pem->status_peminjaman }}</td>
-                                <td>{{ $pem->id_buku}}</td>
+                                <td>{{ $pemJB->tanggal_pinjam }}</td>
+                                <td>{{ $pemJB->tanggal_kembali }}</td>
+                                <td>{{ $pemJB->status_peminjaman }}</td>
+                                <td>{{ $pemJB->nama_buku}}</td>
                             </tr>
                         <?php endforeach ?>
                         </table>
