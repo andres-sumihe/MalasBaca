@@ -5,6 +5,7 @@
     <title>MalasBaca</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
 
@@ -96,6 +97,7 @@
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-User" role="tabpanel" aria-labelledby="Daftar-User-tab" >
                 <form method="post" action="{{ route('savePengguna') }}">
+                   
                     {{ csrf_field() }}
                     Tambah Pengguna Baru <br>
                     <table>

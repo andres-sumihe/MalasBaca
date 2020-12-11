@@ -205,20 +205,26 @@ class LibController extends Controller
     }
 
     public function cariBukuResult(Request $req){
-    	$buku = DB::table('buku')->get();
+        $buku = DB::table('buku')->get();
+        $pengguna = DB::table('pengguna')->get();
+        $peminjaman = DB::table('peminjaman')->get();
+        $pengumuman = DB::table('pengumuman')->get();  
+
         $input = $req->input;
-        
-        if(strcmp($req->buku, 'nama') == 0){
+        $bukuFilter = $req->buku;
+        if(strcmp($bukuFilter, 'nama') == 0){
             $resultBuku = DB::table('buku')->where('nama_buku', 'like', "%{$input}%")->get();
-            return redirect('home', ['resultBuku'=>$resultBuku],['buku'=>$buku]);
+            // dd($buku);
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
+            // return view('home', ['resultBuku'=>$resultBuku],['buku'=>$buku]);
         }
-        if(strcmp($req->buku, 'penulis') == 0) {
+        if(strcmp($bukuFilter, 'penulis') == 0) {
             $resultBuku = DB::table('buku')->where('penulis_buku', 'like', "%{$input}%")->get();
-            return view('home', ['resultBuku'=>$resultBuku],['buku'=>$buku]);
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
         }
-        if(strcmp($req->buku, 'penerbit') == 0) {
+        if(strcmp($bukuFilter, 'penerbit') == 0) {
             $resultBuku = DB::table('buku')->where('penerbit_buku', 'like', "%{$input}%")->get();
-            return view('home', ['resultBuku'=>$resultBuku],['buku'=>$buku]);
+            return view('home')->with(compact('resultBuku', 'buku', 'pengguna', 'pengumuman', 'peminjaman'));
         }
 
     }
