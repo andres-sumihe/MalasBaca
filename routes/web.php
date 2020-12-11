@@ -76,7 +76,7 @@ Route::get('/admin/insertPeminjaman', 'LibController@insertPeminjaman')->name('i
 Route::post('/admin/savePeminjaman', 'LibController@savePeminjaman')->name('savePeminjaman');
 Route::get('/admin/deletePeminjaman/{id_Peminjaman}', 'LibController@deletePeminjaman')->name('deletePeminjaman');
 Route::get('/admin/updatePeminjaman/{id_Peminjaman}', 'LibController@updatePeminjaman')->name('updatePeminjaman');
-Route::post('/admin/saveUpdatePeminjaman', 'LibController@saveUpdatePeminjaman');
+Route::post('/admin/saveUpdatePeminjaman/{id_peminjaman}', 'LibController@saveUpdatePeminjaman');
 
 //Route CRUD Pengumuman
 Route::get('/admin/readPengumuman', 'LibController@readPengumuman');
