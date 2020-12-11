@@ -127,12 +127,48 @@
                     </div>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Daftar-Pinjam" role="tabpanel" aria-labelledby="Daftar-Pinjam-tab" >
-                        Daftar-Pinjam
+                  
+                    <h3><strong>Data Peminjaman</strong></h3>
+                    <table class="table table-stripped table-hover table-responsive-sm">
+                        <tr>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
+                            <th>Status</th>
+                            <th>ID Buku</th>
+                        </tr>
+                        <?php foreach ($peminjaman as $pem): ?>
+                            <tr>
+                                <td>{{ $pem->tanggal_pinjam }}</td>
+                                <td>{{ $pem->tanggal_kembali }}</td>
+                                <td>{{ $pem->status_peminjaman }}</td>
+                                <td>{{ $pem->id_buku}}</td>
+                            </tr>
+                        <?php endforeach ?>
+                        </table>
                 </div>
                 <div class="col-md-12 col-lg-12 tab-pane fade show " id="Cari-Buku" role="tabpanel" aria-labelledby="Cari-Buku-tab" >
                         <div class="container">
                             <h3><strong>Cari Buku</strong></h3>
                             <div class="row">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputState">State</label>
+                                    <select id="inputState" class="form-control">
+                                        <option value="" selected="true" disabled="true">--Filter Berdasarkan--</option>
+                                        <option value="nama">Nama Buku</option>
+                                        <option value="penulis">Penulis Buku</option>
+                                        <option value="penerbit">Penerbit Buku</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputZip">Zip</label>
+                                    <input type="text" class="form-control" id="inputZip">
+                                </div>
+                            </div>
                                 <form method="post" action="{{ route('cariBukuResult') }}">
                                     {{ csrf_field() }}
                                     <table>

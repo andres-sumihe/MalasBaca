@@ -127,8 +127,9 @@ class LibController extends Controller
         $buku = DB::table('buku')->get();
         $pengguna = DB::table('pengguna')->get();
         $peminjaman = DB::table('peminjaman')->get();
-        $pengumuman = DB::table('pengumuman')->get();  //KALIAN LUPA INI
-        return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
+        $pengumuman = DB::table('pengumuman')->get();  
+        return view('home')->with(compact('buku','pengguna','peminjaman', 'pengumuman'));
+        // return view('home',['pengumuman'=>$pengumuman], ['buku'=>$buku], ['pengguna'=>$pengguna], ['peminjaman'=>$peminjaman]);
     }
 
     public function insertBuku(){
